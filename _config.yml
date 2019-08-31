@@ -1,3 +1,8 @@
+title: Ahmad Alkadri's Blog
+email: ahmad.alkadri@outlook.com
+description: A personal website of mine
+url: https://ahmad-alkadri.github.io
+github_username: ahmad-alkadri
 name: Ahmad Alkadri
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
