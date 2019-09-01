@@ -1,7 +1,6 @@
 ---
 layout: post
 title: First Leaflet Test
-tags: [R,leaflet,maps]
 linktormd: true
 leafletmap: true
 always_allow_html: yes
