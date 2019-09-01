@@ -23,7 +23,7 @@ It was quite difficult to learn at first,
 but now I kinda like it. No, scratch that, I love it.
 
 Presently, I’m studying for my Ph.D. degree at 
-the [Laboratory of Mechanics and Civil Engineering](www.lmgc.univ-montp2.fr/), 
+the [Laboratory of Mechanics and Civil Engineering](http://www.lmgc.univ-montp2.fr/), 
 Montpellier, and working 
 as an R&D Researcher at the same time at 
 [Henri Selmer Paris](http://www.selmer.fr/), 
