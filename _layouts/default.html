@@ -1,33 +1,9 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>{{ page.title }}</title>
-		<!-- linking to the main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-		{% if page.leafletmap %}	
-		<!-- Require Leaflet -->
-		{% include leaflet.html %}	
-		<!-- End Leaflet -->
-		{% endif %}
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-			
-			{{ content }}
-			
-			</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:ahmad.alkadri@outlook.com">email</a></li>
-        		<li><a href="https://github.com/ahmad-alkadri">github.com/ahmad-alkadri</a></li>
-			</ul>
-		</footer>
-	</body>
-</html>
+---
+layout: base
+---
+
+<div class="intro-header"></div>
+
+<div role="main" class="container">
+  {{ content }}
+</div>
