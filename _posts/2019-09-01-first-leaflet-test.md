@@ -11,7 +11,7 @@ output: github_document
 
 This is my first blog post featuring a leaflet map. 
 I've followed the step-by-step guide provided in 
-this [blog post]() and apparently it works. 
+this [blog post](https://dieghernan.github.io/201905_Leaflet_R_Jekyll/) and apparently it works. 
 
 To say that I'm happy would be an understatement. 
 Now I'm able to write blog post with maps embedded 
