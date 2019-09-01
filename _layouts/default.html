@@ -4,6 +4,11 @@
 		<title>{{ page.title }}</title>
 		<!-- linking to the main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
+		{% if page.leafletmap %}	
+		<!-- Require Leaflet -->
+		{% include leaflet.html %}	
+		<!-- End Leaflet -->
+		{% endif %}
 	</head>
 	<body>
 		<nav>
