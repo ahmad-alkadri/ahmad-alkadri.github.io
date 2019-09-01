@@ -1,0 +1,24 @@
+---
+layout: post
+title: "2019-09-01-first-leaflet-test"
+tags: [R,leaflet,maps]
+linktormd: true
+leafletmap: true
+always_allow_html: yes
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r leaflettest, message=FALSE, warning=FALSE}
+library(leaflet)
+
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+m  # Print the map
+```
