@@ -7,8 +7,6 @@ always_allow_html: yes
 output: github_document
 ---
 
-## R Markdown
-
 This is my first blog post featuring a leaflet map. 
 I've followed the step-by-step guide provided in 
 this [blog post](https://dieghernan.github.io/201905_Leaflet_R_Jekyll/) and apparently it works. 
