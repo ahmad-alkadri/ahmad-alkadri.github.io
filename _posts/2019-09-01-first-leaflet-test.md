@@ -9,18 +9,31 @@ output: github_document
 
 ## R Markdown
 
+This is my first blog post featuring a leaflet map. 
+I've followed the step-by-step guide provided in 
+this [blog post]() and apparently it works. 
+
+To say that I'm happy would be an understatement. 
+Now I'm able to write blog post with maps embedded 
+in it. I'm going to look up how to "beautify" 
+this website though; perhaps I'm going to find 
+some custom themes. God knows how bad I am with CSS.
+
+Anyway, here's the birthplace of R language.
+
 ``` r
 library(leaflet)
 
 m <- leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
-  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+  addMarkers(lng=174.768, lat=-36.852, 
+  popup="The birthplace of R")
 m  # Print the map
 ```
 
 <!--html_preserve-->
 
-<div id="htmlwidget-34e3a38a09ff3a910f03" class="leaflet html-widget" style="width:672px;height:480px;">
+<div id="htmlwidget-34e3a38a09ff3a910f03" class="leaflet html-widget" style="width:100%;height:480px;">
 
 </div>
 
