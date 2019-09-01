@@ -5,6 +5,7 @@ linktormd: true
 leafletmap: true
 always_allow_html: yes
 output: github_document
+date: 2019-09-01
 ---
 
 This is my first blog post featuring a leaflet map. 
