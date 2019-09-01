@@ -1,16 +1,12 @@
 ---
 layout: post
-title: "2019-09-01-first-leaflet-test"
+title: First Leaflet Test
 tags: [R,leaflet,maps]
 linktormd: true
 leafletmap: true
 always_allow_html: yes
 output: github_document
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## R Markdown
 
