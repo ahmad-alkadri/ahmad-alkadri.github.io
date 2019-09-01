@@ -1,5 +1,12 @@
-First Leaflet Test
-================
+---
+layout: post
+title: First Leaflet Test
+tags: [R,leaflet,maps]
+linktormd: true
+leafletmap: true
+always_allow_html: yes
+output: github_document
+---
 
 ## R Markdown
 
