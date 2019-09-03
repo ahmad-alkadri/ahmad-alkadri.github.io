@@ -5,6 +5,7 @@ linktormd: true
 leafletmap: true
 always_allow_html: yes
 output: github_document
+tags: [personal, blog, leaflet, map, spatial, R]
 date: 2019-09-01
 ---
 
