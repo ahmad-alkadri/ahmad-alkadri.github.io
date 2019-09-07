@@ -1991,7 +1991,7 @@ for (i in 1:nrow(dest.results)) {
     
     dest.results$Lat[i] <- res_geo$lat
     
-  }, warning=function(w){Sys.sleep(0)})
+  }, warning=function(w){Sys.sleep(0)}) # Basically, skip
   
   Sys.sleep(3) #Each time, we give the OSM a "rest time" of three seconds
   
@@ -2060,24 +2060,12 @@ over each found coordinates:
 
 ``` r
 for (i in 1:nrow(dest.results)) {
-  tryCatch({
-    
-    
-  }, warning=function(w){"Coordinates not found on OSM"})
   if(dest.results$Note[i]=="Coordinates found"){
-    
     mapres <- addMarkers(mapres,
                        lng = as.numeric(dest.results$Lon[i]),
                        lat = as.numeric(dest.results$Lat[i]),
                        popup = as.character(dest.results$Address[i]))
-      
-  } else {
-    
-    Sys.sleep(0)
-    
   }
-  
-  
 }
 
 # Show the map
