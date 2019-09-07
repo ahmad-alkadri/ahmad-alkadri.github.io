@@ -55,19 +55,19 @@ Scraping the information from their website thus proven very simple. The
 first thing I did was visiting their web page for [Switzerland
 destinations](https://global.flixbus.com/bus/switzerland):
 
-![](2019-09-07-wp-scraping-flixbus-switzerland_files/2019-09-07-wp-scraping-flixbus-switzerland_webpage_front.png)
+![](https://github.com/ahmad-alkadri/ahmad-alkadri.github.io/blob/master/_posts/2019-09-07-wp-scraping-flixbus-switzerland_files/2019-09-07-wp-scraping-flixbus-switzerland_webpage_front.png?raw=true)
 
 Scrolling down a little bit, you’ll see the list of cities served by the
 FlixBus. Using a Chrome extension called [Selector
 Gadget](https://chrome.google.com/webstore/search/selector%20gadget), I
 selected the cities and obtained their xpath:
 
-![](2019-09-07-wp-scraping-flixbus-switzerland_files/2019-09-07-wp-scraping-flixbus-switzerland_webpage_xpaths.png)
+![](https://github.com/ahmad-alkadri/ahmad-alkadri.github.io/blob/master/_posts/2019-09-07-wp-scraping-flixbus-switzerland_files/2019-09-07-wp-scraping-flixbus-switzerland_webpage_xpaths.png?raw=true)
 
 Afterwards, I navigated to one of the cities listed and copied the xpath
 of their bus stop address:
 
-![](2019-09-07-wp-scraping-flixbus-switzerland_files/2019-09-07-wp-scraping-flixbus-switzerland_webpage_cities.png)
+![](https://github.com/ahmad-alkadri/ahmad-alkadri.github.io/blob/master/_posts/2019-09-07-wp-scraping-flixbus-switzerland_files/2019-09-07-wp-scraping-flixbus-switzerland_webpage_cities.png?raw=true)
 
 And that’s Step 1 finished.
 
@@ -2033,7 +2033,7 @@ pie(c(percent_found,percent_notfound),
     main="Percentage of Bus Stops Found and Not Found by OSM")
 ```
 
-![](2019-09-07-wp-scraping-flixbus-switzerland_files/figure-gfm/successrateOSM-1.png)<!-- -->
+![](https://github.com/ahmad-alkadri/ahmad-alkadri.github.io/blob/master/_posts/2019-09-07-wp-scraping-flixbus-switzerland_files/figure-gfm/successrateOSM-1.png?raw=true)<!-- -->
 
 # Step 4: Visualizing on Map
 
