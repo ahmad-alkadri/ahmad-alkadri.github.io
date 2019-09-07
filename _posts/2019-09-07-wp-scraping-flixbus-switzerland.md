@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Weekend R Project: Flixbus' Stops in Switzerland
+title: Weekend R Project - Flixbus' Stops in Switzerland
 linktormd: true
 leafletmap: true
 always_allow_html: yes
