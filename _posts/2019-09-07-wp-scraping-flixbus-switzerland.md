@@ -9,33 +9,45 @@ tags: [webscraping, WEP, project, blog, leaflet, map, spatial, R]
 date: 2019-09-07
 ---
 
-Having been avid users of Flixbus for three years now, I and my wife
-know very well the importance of knowing *where the Flixbus stop* in our
-destination is.
+Having been avid users of Flixbus for three years now, 
+I and my wife know very well the importance of knowing 
+*where the Flixbus stop* of our destination is. 
 
-And not only for Flixbus, but also for other modes of mass
-transportations, such as train. Traditionally, before departing for
-traveling, we always gathered all the addresses of Flixbus stops that we
-would go to. And we always saved them *offline*, for the rare cases
-where our smartphones are dead and we’re without any charging stations
-nearby, so that in those situations we would always still be able to ask
-people around us on directions.
+And not only for Flixbus, but also for other modes of 
+mass transportations, such as train, tram, or subways. 
 
-So how do we did it, usually? Well, normally we visited the Flixbus
-website and looked up the addresses for each cities that we’re going to
-visit and copied-pasted them into a Word document. However, this
-week-end I’ve got an idea to try to do this little project, where we
-would scrape these data online using R and `rvest` package, and then
-visualizing their addresses in map using OpenStreetMap, accessible
-through `tmaptools` package. Admittedly, I’ve never used OpenStreetMap
-for geocoding before, so I think it could also a good case study to
-check its capability.
+Traditionally, before departing for traveling using Flixbus,
+we always gathered all the addresses of the bus stops that 
+we're going to go to. And we always saved them *offline*, 
+printed them even, for the rare cases 
+where our smartphones are dead and we're without any 
+charging stations nearby, so that in those situations 
+we would always still be able to ask people around us 
+on directions by showing them the printed addresses of 
+those bus stops.
+
+So how do we obtain those informations, usually? 
+Well, normally we visited the Flixbus website 
+and looked up the addresses for each 
+cities that we're going to visit and copy-pasted them 
+into a Word document. However, this week-end I've got 
+an idea to try to do this little project, where we 
+would scrape these data online using R and 
+`rvest` package, and then visualizing their addresses 
+in map using OpenStreetMap, accessible through 
+`tmaptools` package. 
+
+Further, admittedly, I've never used OpenStreetMap 
+for geocoding before, so I think it could also a good case study 
+to check its capability.
 
 So, in short:
 
   - in this project I used the web-scraping package of R, `rvest`, to
-    obtain the addresses of Flixbus’ stops in *Switzerland* (because
-    we’ve just finished our summer road trip in that country),
+    obtain the addresses of Flixbus’ stops in *Switzerland*. 
+    The reason why we chose this country is because
+    we’ve just finished our summer road trip in that country 
+    (more on that later!)
 
   - afterwards, I used `tmaptools` package to geocode those address
     using OSM and obtaining their coordinates, and
@@ -43,10 +55,10 @@ So, in short:
   - finally, using those coordinates, I mark their locations on an
     interactive map using `leaflet` package.
 
-# Step 1: Obtaining the Xpaths from the Flixbus Website
+# Step 1: Obtaining the Xpaths from the Flixbus' Website
 
-Firstly I’d like to say one thing about Flixbus website: I love it. It
-contains pretty much every information that I need about routes, bus
+Firstly I’d like to say one thing about Flixbus' website: I love it. 
+It contains pretty much every information that I need about routes, bus
 stops, schedules, etc. It is also very consistent, with each country
 page containing the list of cities that they serve, and each city page
 containing the address(es) of the bus stops in that city.
