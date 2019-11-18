@@ -22,36 +22,5 @@ This site is powered by Hugo and edited completely in Rstudio. I still marvel at
 I’ll continue writing here, mostly small notes, quotes, and some codes.</description>
     </item>
     
-    <item>
-      <title>Weekend R Project - Flixbus&#39; Stops in Switzerland</title>
-      <link>/posts/2019-09-07-wp-scraping-flixbus-switzerland/</link>
-      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2019-09-07-wp-scraping-flixbus-switzerland/</guid>
-      <description>Having been avid users of Flixbus for three years now, I and my wife know very well the importance of knowing where the Flixbus stop of our destination is.
-And not only for Flixbus, but also for other modes of mass transportations, such as train, tram, or subways.
-Traditionally, before departing for traveling using Flixbus, we always gathered all the addresses of the bus stops that we&amp;rsquo;re going to go to.</description>
-    </item>
-    
-    <item>
-      <title>First Leaflet Test</title>
-      <link>/posts/2019-09-01-first-leaflet-test/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2019-09-01-first-leaflet-test/</guid>
-      <description>This is my first blog post featuring a leaflet map. I&amp;rsquo;ve followed the step-by-step guide provided in this blog post and apparently it works.
-To say that I&amp;rsquo;m happy would be an understatement. Now I&amp;rsquo;m able to write blog post with maps embedded in it. I&amp;rsquo;m going to look up how to &amp;ldquo;beautify&amp;rdquo; this website though; perhaps I&amp;rsquo;m going to find some custom themes. God knows how bad I am with CSS.</description>
-    </item>
-    
-    <item>
-      <title>First Blog Post in Github Pages: Finally</title>
-      <link>/posts/2019-08-31-first-post-alkadri-blog/</link>
-      <pubDate>Sat, 31 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2019-08-31-first-post-alkadri-blog/</guid>
-      <description>After many months considering it, and even started it but chickened because of the seeming complexities of it, I finally got around to putting this simple personal website together.
-Powered by Jekyll and Github Pages, this site is much easier to made and much simpler to maintain than my old Wordpress blog. It&amp;rsquo;s also a lot easier to set up than I thought it was going to be. It&amp;rsquo;s amazing. Currently, it&amp;rsquo;s still in development, of course, but stay tuned!</description>
-    </item>
-    
   </channel>
 </rss>
