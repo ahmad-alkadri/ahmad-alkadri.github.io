@@ -6,20 +6,10 @@
     <description>Recent content on Le Cahier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Leaflet Test</title>
-      <link>/posts/leaflet-test/</link>
-      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/leaflet-test/</guid>
-      <description>This is my first blog post featuring a leaflet map. I’ve followed the step-by-step guide provided in this blog post and apparently it works.
-To say that I’m happy would be an understatement. Now I’m able to write blog post with maps embedded in it. I’m going to look up how to “beautify” this website though; perhaps I’m going to find some custom themes.</description>
-    </item>
     
     <item>
       <title>About</title>
