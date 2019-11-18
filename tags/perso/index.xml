@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>perso on Le Cahier</title>
+    <link>/tags/perso/</link>
+    <description>Recent content in perso on Le Cahier</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/perso/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First Post in this Blog</title>
+      <link>/posts/first-post-in-this-blog/</link>
+      <pubDate>Mon, 18 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/first-post-in-this-blog/</guid>
+      <description>After many months considering it, and even started it but chickened because of the seeming complexities of it, I finally got around to putting this simple blog together.
+This site is powered by Hugo and edited completely in Rstudio. I still marvel at R these days. Doing statistics is one thing, finite difference is another, but making a package so that people can blog using R?
+I’ll continue writing here, mostly small notes, quotes, and some codes.</description>
+    </item>
+    
+  </channel>
+</rss>

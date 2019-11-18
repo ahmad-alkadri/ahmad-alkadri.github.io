@@ -1,84 +1,115 @@
----
-layout: page
-title: Hello, I'm Ahmad!
-use-site-title: true
----
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="generator" content="Hugo 0.59.1" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Le Cahier - Notes by Ahmad </title><link rel="icon" type="image/png" href=favicon.ico /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Le Cahier" />
+	<meta property="og:title" content="" />
+<meta property="og:description" content="A website built through Hugo and blogdown." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/" />
 
-I'm currently pursuing my Ph.D. degree 
-and working as an R & D researcher at the same time. 
-I use R a lot in my day to day basis. 
-This will be my new personal website. 
-It's still in the development phase, as you can see. 
-For now, if you want to contact me the easiest will be 
-through my <a href="http://www.linkedin.com/in/alkadri">LinkedIn</a> 
-or by <a href="mailto:ahmad.alkadri@outlook.com">email</a>. See you soon!
+<meta property="og:updated_time" content="2019-11-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="A website built through Hugo and blogdown."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
-<hr>
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" /><link rel="stylesheet" type="text/css" href="/css/dark.css" media="(prefers-color-scheme: dark)" />
 
-<h1 align="center">Recent Posts</h1>
+	<script src="/js/feather.min.js"></script>
+	
+	<script src="/js/main.js"></script>
+</head>
 
-<div class="posts-list">
-  {% for post in paginator.posts %}
-  <article class="post-preview">
-    <a href="{{ post.url | relative_url }}">
-	  <h3 class="post-title">{{ post.title }}</h3>
+<body>
 
-	  {% if post.subtitle %}
-	  <h4 class="post-subtitle">
-	    {{ post.subtitle }}
-	  </h4>
-	  {% endif %}
-    </a>
+<div class="container wrapper">
+<div class="header">
+	<h1 class="site-title"><a href="/">Le Cahier</a></h1>
+	<div class="site-description"><h2>Notes by Ahmad</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/ahmad-alkadri" title="Github"><i data-feather="github"></i></a><a href="https://linkedin.com/in/alkadri" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
 
-    <p class="post-meta">
-      Posted on {{ post.date | date: site.date_format }}
-    </p>
-
-    <div class="post-entry-container">
-      {% if post.image %}
-      <div class="post-image">
-        <a href="{{ post.url | relative_url }}">
-          <img src="{{ post.image | relative_url }}">
-        </a>
-      </div>
-      {% endif %}
-      <div class="post-entry">
-        {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }}
-        {% assign excerpt_word_count = post.excerpt | number_of_words %}
-        {% if post.content != post.excerpt or excerpt_word_count > site.excerpt_length %}
-          <a href="{{ post.url | relative_url }}" class="post-read-more">[Read&nbsp;More]</a>
-        {% endif %}
-      </div>
-    </div>
-
-    {% if post.tags.size > 0 %}
-    <div class="blog-tags">
-      Tags:
-      {% if site.link-tags %}
-      {% for tag in post.tags %}
-      <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
-      {% endfor %}
-      {% else %}
-        {{ post.tags | join: ", " }}
-      {% endif %}
-    </div>
-    {% endif %}
-
-   </article>
-  {% endfor %}
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">Blog</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
 </div>
 
-{% if paginator.total_pages > 1 %}
-<ul class="pager main-pager">
-  {% if paginator.previous_page %}
-  <li class="previous">
-    <a href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer Posts</a>
-  </li>
-  {% endif %}
-  {% if paginator.next_page %}
-  <li class="next">
-    <a href="{{ paginator.next_page_path | relative_url }}">Older Posts &rarr;</a>
-  </li>
-  {% endif %}
-</ul>
-{% endif %}
+
+<h2>EN</h2>
+
+<p>I'm currently two things: Ph.D. student at 
+the <a href="http://www.lmgc.univ-montp2.fr/?lang=en">
+  Laboratory of Mechanics and Civil Engineering, 
+  University of Montpellier</a>, and 
+R&D researcher at <a href="https://www.selmer.fr/">Henri SELMER Paris</a>. 
+I reconcile those two identities of mine by writing thesis 
+on the mechanics of fluid in clarinet's wood.</p>
+
+<p>This blog is a collection of notes, 
+quotes from books that I read, travel journals, 
+and--at times--pieces of coding that I've done. 
+I'm a big fan of <strong>R</strong>. 
+It basically helped me finish my Master 
+thesis on time and wrote my second scientific article.</p>
+
+<p>All opinions expressed in this blog are my own; 
+I don’t represent anyone else here. If you have any 
+question feel free to hit me at 
+<a href="mailto:ahmad.alkadri@outlook.com">my email.</a></p>
+
+<h2><i>FR</i></h2>
+
+<i><p>Je suis actuellement un thésard au 
+<a href="http://www.lmgc.univ-montp2.fr/?lang=fr">Laboratoire de 
+Mécanique et Génie Civil d'Université de Montpellier</a> 
+et aussi chargé de recherche 
+chez <a href="https://www.selmer.fr/">Henri SELMER Paris</a>. 
+En combinant ces deux postes 
+j'écris maintenant une thèse sur le flux d'eau dans le bois 
+de clarinette.</p>
+
+<p>Ce blog-ci c'est une place de collection de 
+notes, de quotes depuis des livres que j'ai lus, 
+et aussi des cahiers de mes voyages, et--de temps en temps--
+des parties de codes que j'ai fait. J'aime bien <b>R</b>; 
+c'est grâce à lui que j'ai pu finir mon Master sans délai 
+et aussi soumis mon deuxième article scientifique.</p>
+
+<p>Toutes les écritures ici sont celles de mienne. 
+Je répresente personne. Donc si vous avez de questions 
+n'hésitez pas de m'écrire à 
+<a href="mailto:ahmad.alkadri@outlook.com">mon mail.</a></p></i>
+
+</div>
+<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>
