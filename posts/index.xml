@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Embedding video</title>
+      <link>/posts/embedding-video/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/embedding-video/</guid>
+      <description>I’ve just read this article about embedding YouTube videos using this simple blogdown function:
+blogdown::shortcode(&amp;quot;youtube&amp;quot;, &amp;quot;P3aGk_Gwqjw&amp;quot;)   I think I will never cease to be amazed by R developers. The possibilities are truly endless now.
+PS: “Electro swing”. Check it out on YouTube. Thank me later.</description>
+    </item>
+    
+    <item>
       <title>Leaflet Test</title>
       <link>/posts/leaflet-test/</link>
       <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>

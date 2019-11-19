@@ -8,6 +8,16 @@
   </url>
   
   <url>
+    <loc>/tags/embed/</loc>
+    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/embedding-video/</loc>
+    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/leaflet/</loc>
     <lastmod>2019-11-19T00:00:00+00:00</lastmod>
   </url>
@@ -29,6 +39,16 @@
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/video/</loc>
+    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/youtube/</loc>
     <lastmod>2019-11-19T00:00:00+00:00</lastmod>
   </url>
   

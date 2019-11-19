@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>embed on Le Cahier</title>
+    <link>/tags/embed/</link>
+    <description>Recent content in embed on Le Cahier</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/embed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Embedding video</title>
+      <link>/posts/embedding-video/</link>
+      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/embedding-video/</guid>
+      <description>I’ve just read this article about embedding YouTube videos using this simple blogdown function:
+blogdown::shortcode(&amp;quot;youtube&amp;quot;, &amp;quot;P3aGk_Gwqjw&amp;quot;)   I think I will never cease to be amazed by R developers. The possibilities are truly endless now.
+PS: “Electro swing”. Check it out on YouTube. Thank me later.</description>
+    </item>
+    
+  </channel>
+</rss>
