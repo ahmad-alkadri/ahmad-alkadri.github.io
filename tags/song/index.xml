@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>video on Le Cahier</title>
-    <link>/tags/video/</link>
-    <description>Recent content in video on Le Cahier</description>
+    <title>song on Le Cahier</title>
+    <link>/tags/song/</link>
+    <description>Recent content in song on Le Cahier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/video/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/song/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,18 +19,6 @@
       <guid>/posts/exactly-what-i-needed-this-week/</guid>
       <description>Je viens d’avoir ma femme me notifie que IU vient de publier une nouvelle chanson. Le titre est “Blueming” (comme un mélange de Blue et Blooming) et honnêtement je ne savais pas avant mais c’est exactement ce dont j’avais besoin pour passer cette semaine assez rugueuse.
   Aussi comment ça s’appelle ce genre de musique ? Cela a l’air super bon c’est comme les chansons depuis early 2000s. C’est très “homy” mais en même temps aussi énergétique.</description>
-    </item>
-    
-    <item>
-      <title>Embedding video on Rmarkdown using Blogdown package</title>
-      <link>/posts/embedding-video/</link>
-      <pubDate>Tue, 19 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/embedding-video/</guid>
-      <description>I’ve just read this article about embedding YouTube videos using this simple blogdown function:
-blogdown::shortcode(&amp;quot;youtube&amp;quot;, &amp;quot;P3aGk_Gwqjw&amp;quot;)   where &amp;quot;P3aGk_Gwqjw&amp;quot; is the video’s YouTube ID.
-And that’s all. No wasted lines; very efficient. I think I will never cease to be amazed by R developers. The possibilities are truly endless now.
-PS: “Electro swing”. Check it out on YouTube. Thank me later.</description>
     </item>
     
   </channel>
