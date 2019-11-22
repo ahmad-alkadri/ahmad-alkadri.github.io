@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Le Cahier</title>
@@ -28,7 +28,7 @@
       
       <guid>/posts/embedding-video/</guid>
       <description>I’ve just read this article about embedding YouTube videos using this simple blogdown function:
-blogdown::shortcode(&amp;quot;youtube&amp;quot;, &amp;quot;P3aGk_Gwqjw&amp;quot;)   where &amp;quot;P3aGk_Gwqjw&amp;quot; is the video’s YouTube ID.
+blogdown::shortcode(&amp;quot;youtube&amp;quot;, &amp;quot;P3aGk_Gwqjw&amp;quot;)   where &#34;P3aGk_Gwqjw&#34; is the video’s YouTube ID.
 And that’s all. No wasted lines; very efficient. I think I will never cease to be amazed by R developers. The possibilities are truly endless now.
 PS: “Electro swing”. Check it out on YouTube. Thank me later.</description>
     </item>
@@ -50,7 +50,7 @@ To say that I’m happy would be an understatement. Now I’m able to write blog
       
       <guid>/about/</guid>
       <description>My name is Ahmad Alkadri. You can find out more about me profesionally on my LinkedIn. Sometimes I travel and took photos.
-I visited Europe for the first time in 2008, specifically to Ukraine, and I fell in love with it. I came back in 2015, this time to France, for my Master study. Originally, I came from the field of Forestry.</description>
+I visited Europe for the first time in 2008, specifically to Ukraine, and I fell in love with it. I came back in 2015, this time to France, for my Master study. Originally, I came from the field of Forestry. Due to some weird course of fate, I became entangled in the field of wood acoustics, wrote a scientific article about violin wood, and now I work as an Applied Researcher in the R&amp;amp;D department of Henri SELMER Paris.</description>
     </item>
     
     <item>
