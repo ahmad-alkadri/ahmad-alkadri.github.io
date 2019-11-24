@@ -171,9 +171,11 @@ insurance price based on the parameters available. For starter, let’s
 just choose the <code>bmi</code> as the independent variable and of course <code>charges</code>
 as the dependent variable.</p>
 <pre class="r"><code>par &lt;- &quot;bmi&quot;
-res &lt;- &quot;charges&quot;
-indvar &lt;- dat[,&quot;bmi&quot;]
-depvar &lt;- dat[,&quot;charges&quot;]</code></pre>
+res &lt;- &quot;charges&quot;</code></pre>
+<p>And then to facilitates the analysis let’s just save those two parameters
+(from the dataframe <code>dat</code>) into two new vectors:</p>
+<pre class="r"><code>indvar &lt;- dat[,par]
+depvar &lt;- dat[,res]</code></pre>
 <p>Now with those data, let’s do the linear regression.</p>
 <hr />
 </div>
