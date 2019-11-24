@@ -17,10 +17,9 @@
       <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>/posts/how-to-plot-a-linear-regression-and-display-the-equations-and-r-squared-in-the-same-graph/</guid>
-      <description>A more compatible title perhaps would be: How to plot an Excel-like linear regression in R.
-This is a half-note, half-tutorial that I wrote partly because lately I keep forgetting it, something that I’m actually a bit ashamed, although it seems to be quite normal.
+      <description>Intro A more compatible title perhaps would be: How to plot an Excel-like linear regression in R. This is a half-note, half-tutorial that I wrote partly because lately I keep forgetting it, something that I’m actually a bit ashamed, although it seems apparently to be quite normal among data scientists to forget some basic things, like reading CSV files.
 I suppose a background is needed.
-I first started to use R because I’m interested in its visualization capability. In the lab I was working at the time (I was an intern then).</description>
+I first started to use R because I’m interested in its visualization capability.</description>
     </item>
     
   </channel>
