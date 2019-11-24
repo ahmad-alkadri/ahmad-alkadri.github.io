@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>video on Le Cahier</title>
@@ -28,7 +28,7 @@
       
       <guid>/posts/embedding-video/</guid>
       <description>I’ve just read this article about embedding YouTube videos using this simple blogdown function:
-blogdown::shortcode(&amp;quot;youtube&amp;quot;, &amp;quot;P3aGk_Gwqjw&amp;quot;)   where &#34;P3aGk_Gwqjw&#34; is the video’s YouTube ID.
+blogdown::shortcode(&amp;quot;youtube&amp;quot;, &amp;quot;P3aGk_Gwqjw&amp;quot;)   where &amp;quot;P3aGk_Gwqjw&amp;quot; is the video’s YouTube ID.
 And that’s all. No wasted lines; very efficient. I think I will never cease to be amazed by R developers. The possibilities are truly endless now.
 PS: “Electro swing”. Check it out on YouTube. Thank me later.</description>
     </item>

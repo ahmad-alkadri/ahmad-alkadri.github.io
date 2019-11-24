@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>visualization on Le Cahier</title>
+    <link>/tags/visualization/</link>
+    <description>Recent content in visualization on Le Cahier</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to plot a linear regression in R</title>
+      <link>/posts/how-to-plot-a-linear-regression-and-display-the-equations-and-r-squared-in-the-same-graph/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/how-to-plot-a-linear-regression-and-display-the-equations-and-r-squared-in-the-same-graph/</guid>
+      <description>A more compatible title perhaps would be: How to plot an Excel-like linear regression in R.
+This is a half-note, half-tutorial that I wrote partly because lately I keep forgetting it, something that I’m actually a bit ashamed, although it seems to be quite normal.
+I suppose a background is needed.
+I first started to use R because I’m interested in its visualization capability. In the lab I was working at the time (I was an intern then).</description>
+    </item>
+    
+  </channel>
+</rss>
