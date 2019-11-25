@@ -40,6 +40,33 @@ if (!doNotTrack) {
   
 
 </head>
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "\/"
+    },
+    "articleSection" : "posts",
+    "name" : "How to plot a linear regression in R",
+    "headline" : "How to plot a linear regression in R",
+    "description" : "Intro A more compatible title perhaps would be: How to plot an Excel-like linear regression in R. This is a half-note, half-tutorial that I wrote partly because lately I keep forgetting it, something that I’m actually a bit ashamed, although it seems apparently to be quite normal among data scientists to forget some basic things, like reading CSV files.\nI suppose a background is needed.\nI first started to use R because I’m interested in its visualization capability.",
+    "inLanguage" : "en-US",
+    "author" : "",
+    "creator" : "",
+    "publisher": "",
+    "accountablePerson" : "",
+    "copyrightHolder" : "",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-24 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-24 00:00:00 \x2b0000 UTC",
+    "url" : "\/posts\/how-to-plot-a-linear-regression-and-display-the-equations-and-r-squared-in-the-same-graph\/",
+    "wordCount" : "902",
+    "keywords" : [ "R","script","regression","visualization","Blog" ]
+}
+</script>
+
 <body class='page type-posts'>
 
   <div class='site'><a class='screen-reader-text' href='#content'>Skip to Content</a><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
@@ -183,9 +210,10 @@ depvar &lt;- dat[,res]</code></pre>
 <h2>Linear regression</h2>
 <p>We’re going to go ahead and assume that the regression with those two
 parameters are linear. So, the basic model that we want to have is:</p>
-<pre><code>y = ax+b</code></pre>
-<p>where <code>y</code> is the <code>depvar</code>, <code>x</code> is the <code>indvar</code>, while <code>a</code> and <code>b</code>
-are the gradient and intercept to be calculated.</p>
+<p><span class="math display">\[
+y = ax+b
+\]</span></p>
+<p>where <span class="math inline">\(y\)</span> is the <code>depvar</code>, <span class="math inline">\(x\)</span> is the <code>indvar</code>, while <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the gradient and intercept to be calculated.</p>
 <pre class="r"><code>reg.lm &lt;- lm(depvar ~ indvar)</code></pre>
 <p>and then let’s summarize them:</p>
 <pre class="r"><code>sum.reg.lm &lt;- summary(reg.lm)
@@ -360,7 +388,11 @@ we will try it.</p>
     </div>
   </div><script>window.__assets_js_src="/assets/js/"</script>
 
-<script src='/assets/js/main.67d669ac.js'></script><script src='/js/custom.js'></script>
+<script src='/assets/js/main.67d669ac.js'></script><script src='/js/custom.js'></script><script type='text/x-mathjax-config'>
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"processEscapes":true}})
+</script>
+
+<script type='text/javascript' async src='//unpkg.com/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'></script>
 
 
 </body>
