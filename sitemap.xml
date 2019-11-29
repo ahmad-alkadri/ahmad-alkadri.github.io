@@ -1,173 +1,132 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/form/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/google/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/how-to-download-google-form-s-survey-responses-as-csv-file/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/survey/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tutorial/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/how-to-plot-a-linear-regression-and-display-the-equations-and-r-squared-in-the-same-graph/</loc>
-    <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/r/</loc>
-    <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/script/</loc>
-    <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/visualization/</loc>
-    <lastmod>2019-11-24T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/embed/</loc>
-    <lastmod>2019-11-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/exactly-what-i-needed-this-week/</loc>
-    <lastmod>2019-11-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/song/</loc>
-    <lastmod>2019-11-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/video/</loc>
-    <lastmod>2019-11-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/youtube/</loc>
-    <lastmod>2019-11-20T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/embedding-video/</loc>
-    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/leaflet/</loc>
-    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/leaflet-test/</loc>
-    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2019-11-18T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/posts/first-post-in-this-blog/</loc>
-    <lastmod>2019-11-18T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/perso/</loc>
-    <lastmod>2019-11-18T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
+&lt;?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+
+<url>
+  <loc>https://ahmad-alkadri.github.io/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/posts/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/about/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/posts/how-to-download-google-form-s-survey-responses-as-csv-file/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/posts/how-to-plot-a-linear-regression-and-display-the-equations-and-r-squared-in-the-same-graph/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/posts/exactly-what-i-needed-this-week/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/posts/embedding-video/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/posts/leaflet-test/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/posts/first-post-in-this-blog/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/embed/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/form/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/google/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/leaflet/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/perso/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/r/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/regression/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/script/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/song/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/survey/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/tutorial/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/video/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/visualization/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://ahmad-alkadri.github.io/tags/youtube/</loc>
+  <lastmod>2019-11-29T09:32:17+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
