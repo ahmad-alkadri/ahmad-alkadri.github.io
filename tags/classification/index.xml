@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tutorial on Le Cahier</title>
-    <link>/tags/tutorial/</link>
-    <description>Recent content in tutorial on Le Cahier</description>
+    <title>classification on Le Cahier</title>
+    <link>/tags/classification/</link>
+    <description>Recent content in classification on Le Cahier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/classification/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       <guid>/posts/classification-using-svm-beginner-s-tale-in-r/</guid>
       <description>This is literally the first time I’ve ever tried using SVM. I’m not so big on all this “Machine Learning” thing; most of the time I use R merely for data analysis, statistics, and visualizations.
 But after careful reading it seems that SVM could be really useful for quick data classification, especially for predicting if the result is going to be binary (Yes or No, A or B, 1 or 0, etc.</description>
-    </item>
-    
-    <item>
-      <title>How to download Google Forms&#39; survey responses as CSV file</title>
-      <link>/posts/how-to-download-google-form-s-survey-responses-as-csv-file/</link>
-      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/how-to-download-google-form-s-survey-responses-as-csv-file/</guid>
-      <description>Intro Collecting data is undoubtedly one of the most important parts in any data science workflow. One of the best easiest ways to collect data, especially from people, is through survey. And among the survey-making platforms, Google Forms is particular because it is free, its ease of use, and overall very direct. It is perhaps not the best, or with the most feature, but it gets the jobs done.</description>
     </item>
     
   </channel>
