@@ -1,0 +1,7392 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='This is literally the first time I’ve ever tried using SVM. I’m not so big on all this “Machine Learning” thing; most of the time I use R merely for data analysis, statistics, and visualizations.
+But after careful reading it seems that SVM could be really useful for quick data classification, especially for predicting if the result is going to be binary (Yes or No, A or B, 1 or 0, etc.'>
+<meta name='theme-color' content='#ffcd00'>
+
+<meta property='og:title' content='Classification using SVM: Beginner&#39;s Tale in R  • Le Cahier'>
+<meta property='og:description' content='This is literally the first time I’ve ever tried using SVM. I’m not so big on all this “Machine Learning” thing; most of the time I use R merely for data analysis, statistics, and visualizations.
+But after careful reading it seems that SVM could be really useful for quick data classification, especially for predicting if the result is going to be binary (Yes or No, A or B, 1 or 0, etc.'>
+<meta property='og:url' content='/posts/classification-using-svm-beginner-s-tale-in-r/'>
+<meta property='og:site_name' content='Le Cahier'>
+<meta property='og:type' content='article'><meta property='article:section' content='posts'><meta property='article:tag' content='R'><meta property='article:tag' content='tutorial'><meta property='article:tag' content='machine-learning'><meta property='article:tag' content='SVM'><meta property='article:tag' content='classification'><meta property='article:published_time' content='2019-12-02T00:00:00Z'/><meta property='article:modified_time' content='2019-12-02T00:00:00Z'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.59.1" />
+
+  <title>Classification using SVM: Beginner&#39;s Tale in R  • Le Cahier</title>
+  <link rel='canonical' href='/posts/classification-using-svm-beginner-s-tale-in-r/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.6a060eb7.css'><link rel='stylesheet' href='/css/custom.css'><style>
+:root{--color-accent:#ffcd00;}
+</style>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-146801316-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  
+
+</head>
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Classification using SVM: Beginner\x27s Tale in R ",
+    "headline" : "Classification using SVM: Beginner\x27s Tale in R ",
+    "description" : "This is literally the first time I’ve ever tried using SVM. I’m not so big on all this “Machine Learning” thing; most of the time I use R merely for data analysis, statistics, and visualizations.\nBut after careful reading it seems that SVM could be really useful for quick data classification, especially for predicting if the result is going to be binary (Yes or No, A or B, 1 or 0, etc.",
+    "inLanguage" : "en-US",
+    "author" : "",
+    "creator" : "",
+    "publisher": "",
+    "accountablePerson" : "",
+    "copyrightHolder" : "",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-02 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-02 00:00:00 \x2b0000 UTC",
+    "url" : "\/posts\/classification-using-svm-beginner-s-tale-in-r\/",
+    "wordCount" : "3096",
+    "keywords" : [ "R","tutorial","machine-learning","SVM","classification","Blog" ]
+}
+</script>
+
+<body class='page type-posts'>
+
+  <div class='site'><a class='screen-reader-text' href='#content'>Skip to Content</a><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li><li class='item'>
+        <a href='/posts'>Posts</a>
+      </li><li class='item'>
+        <a href='/about'>About</a>
+      </li><li class='item'>
+        <a href='/tags'>Tags</a>
+      </li></ul>
+  </div>
+</nav><div class='header-widgets'>
+        <div class='container'>
+    
+    <style>.widget-breadcrumbs li:after{content:'\2f '}</style>
+  <section class='widget widget-breadcrumbs sep-after'>
+    <nav id='breadcrumbs'>
+      <ol><li><a href='/'></a></li><li><a href='/posts/'>Posts</a></li><li><span>Classification using SVM: Beginner&#39;s Tale in R </span></li></ol>
+    </nav>
+  </section></div>
+      </div>
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Le Cahier</p><p class='desc site-desc'></p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>Classification using SVM: Beginner&#39;s Tale in R </h1>
+      
+
+    </div>
+    <div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2019-12-02T00:00:00Z'>2019, Dec 02</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+15 mins read
+</span>
+
+
+  
+  
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>This is literally the first time I’ve ever tried using SVM.
+I’m not so big on all this “Machine Learning” thing; most of the time
+I use <code>R</code> merely for data analysis, statistics, and visualizations.</p>
+<p>But after careful reading it seems that SVM could be really
+useful for quick data classification, especially for predicting
+if the result is going to be binary (Yes or No, A or B, 1 or 0, etc.).
+So here I am diving directly inside!</p>
+<div id="pre-process" class="section level1">
+<h1>Pre-process</h1>
+<p>Most of the steps that I use here are based on
+<a href="https://www.geeksforgeeks.org/classifying-data-using-support-vector-machinessvms-in-r/">this page</a>.
+The author of the aforementioned page has done a great job in my opinion
+in explaining what SVM is and how they could be applied practically.
+I recommend you to read it if you want to dive head first directly to this subject.</p>
+<p>So to start, we have this data called <code>social.csv</code>, available for download
+<a href="https://media.geeksforgeeks.org/wp-content/uploads/social.csv">here</a>,
+which we will analyze. Firstly let’s just import this data to our workspace:</p>
+<pre class="r"><code>dat &lt;- read.csv(&quot;https://media.geeksforgeeks.org/wp-content/uploads/social.csv&quot;)</code></pre>
+<p>Because <code>dat</code> is a dataframe, let’s just first visualize its content:</p>
+<pre class="r"><code>require(tidyverse)
+require(kableExtra)
+dat %&gt;%
+  kable() %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;, &quot;responsive&quot;)) %&gt;%
+  scroll_box(width = &quot;100%&quot;, height = &quot;250px&quot;)</code></pre>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:250px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+User.ID
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Gender
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Age
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+EstimatedSalary
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Purchased
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+15624510
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+19000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15810944
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+20000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15668575
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+43000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15603246
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+57000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15804002
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+76000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15728773
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+58000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15598044
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+84000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15694829
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+150000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15600575
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+33000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15727311
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+65000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15570769
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15606274
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+52000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15746139
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+86000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15704987
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+18000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15628972
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+82000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15697686
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15733883
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+25000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15617482
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+26000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15704583
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+28000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15621083
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+29000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15649487
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+22000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15736760
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+49000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15714658
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+41000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15599081
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+22000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15705113
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+23000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15631159
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+20000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15792818
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+28000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15633531
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+30000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15744529
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+43000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15669656
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+18000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15581198
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+74000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15729054
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+137000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15573452
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+16000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15776733
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+44000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15724858
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+90000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15713144
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+27000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15690188
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+28000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15689425
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+49000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15671766
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15782806
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+31000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15764419
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+17000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15591915
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+51000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15772798
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+108000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15792008
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+15000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15715541
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+84000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15639277
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+20000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15798850
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15776348
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+54000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15727696
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+135000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15793813
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+89000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15694395
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+32000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15764195
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+44000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15744919
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+83000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15671655
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+23000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15654901
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+58000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15649136
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+55000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15775562
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+48000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15807481
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15642885
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+18000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15789109
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+117000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15814004
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+20000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15673619
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+87000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15595135
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+66000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15583681
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+120000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15605000
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+83000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15718071
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+58000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15679760
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+19000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15654574
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+82000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15577178
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+63000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15595324
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+68000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15756932
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15726358
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+27000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15595228
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+23000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15782530
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+113000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15592877
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+18000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15651983
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+112000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15746737
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+52000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15774179
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+27000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15667265
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+87000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15655123
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+17000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15595917
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15668385
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+42000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15709476
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+49000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15711218
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+88000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15798659
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+62000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15663939
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+118000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15694946
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+55000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15631912
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+85000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15768816
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+81000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15682268
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+50000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15684801
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+81000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15636428
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+116000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15809823
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+15000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15699284
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+28000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15786993
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+83000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15709441
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+44000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15710257
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+25000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15582492
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+123000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15575694
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+73000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15756820
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+37000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15766289
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+88000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15593014
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+59000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15584545
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+86000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15675949
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+149000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15672091
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+21000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15801658
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15706185
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+35000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15789863
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+89000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15720943
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+86000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15697997
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15665416
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+71000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15660200
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+71000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15619653
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+61000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15773447
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+55000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15739160
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15689237
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+57000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15679297
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+75000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15591433
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+52000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15642725
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+59000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15701962
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+59000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15811613
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+75000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15741049
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15724423
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+75000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15574305
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+53000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15678168
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+51000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15697020
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+61000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15610801
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+65000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15745232
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+32000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15722758
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+17000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15792102
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+84000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15675185
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+58000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15801247
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+31000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15725660
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+87000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15638963
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+68000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15800061
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+55000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15578006
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+63000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15668504
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+82000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15687491
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+107000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15610403
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+59000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15741094
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+25000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15807909
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+85000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15666141
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+68000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15617134
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+59000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15783029
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+89000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15622833
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+25000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15746422
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+89000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15750839
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+96000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15749130
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+30000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15779862
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+61000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15767871
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+74000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15679651
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+15000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15576219
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+45000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15699247
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+76000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15619087
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+50000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15605327
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+47000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15610140
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+15000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15791174
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+59000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15602373
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+75000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15762605
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+30000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15598840
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+135000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15744279
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+100000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15670619
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+90000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15599533
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+33000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15757837
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+38000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15697574
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+69000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15578738
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+86000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15762228
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+55000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15614827
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+71000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15789815
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+148000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15579781
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+47000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15587013
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+88000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15570932
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+115000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15794661
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+118000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15581654
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+43000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15644296
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15614420
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+28000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15609653
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+47000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15594577
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+22000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15584114
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+23000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15673367
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+34000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15685576
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+16000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15774727
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+71000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15694288
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+117000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15603319
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+43000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15759066
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+60000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15814816
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+66000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15724402
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+82000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15571059
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+41000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15674206
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15715160
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+32000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15730448
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+84000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15662067
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+26000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15779581
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+43000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15662901
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+70000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15689751
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+89000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15667742
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+43000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15738448
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15680243
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+36000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15745083
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15708228
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+22000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15628523
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+39000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15708196
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+74000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15735549
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+134000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15809347
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+71000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15660866
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+101000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15766609
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+47000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15654230
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+130000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15794566
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+114000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15800890
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+142000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15697424
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+22000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15724536
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+96000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15735878
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+150000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15707596
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+42000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15657163
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+58000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15622478
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+43000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15779529
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+108000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15636023
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+65000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15582066
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+78000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15666675
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+96000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15732987
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+143000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15789432
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15663161
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+91000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15694879
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+144000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15593715
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+102000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15575002
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+60000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15622171
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+53000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15795224
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+126000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15685346
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+133000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15691808
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15721007
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15794253
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+147000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15694453
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+42000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15813113
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+107000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15614187
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+86000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15619407
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+112000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15646227
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15660541
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+57000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15753874
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15617877
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+82000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15772073
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+143000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15701537
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+149000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15736228
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+59000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15780572
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+88000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15769596
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+104000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15586996
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15722061
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+146000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15638003
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+50000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15775590
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+122000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15730688
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+52000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15753102
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+97000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15810075
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+39000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15723373
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+52000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15795298
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+134000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15584320
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+146000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15724161
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+44000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15750056
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+90000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15609637
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15794493
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+57000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15569641
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+95000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15815236
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+131000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15811177
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+77000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15680587
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+144000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15672821
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+125000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15767681
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15600379
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+90000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15801336
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+108000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15721592
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+75000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15581282
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+74000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15746203
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+144000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15583137
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+61000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15680752
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+133000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15688172
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+76000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15791373
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+42000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15589449
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+106000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15692819
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+26000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15727467
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+74000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15734312
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+71000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15764604
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+88000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15613014
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+38000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15759684
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+36000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15609669
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+88000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15685536
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+61000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15750447
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+70000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15663249
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+21000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15638646
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+141000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15734161
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+93000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15631070
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+62000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15761950
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+138000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15649668
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15713912
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+78000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15586757
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+134000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15596522
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+89000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15625395
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+39000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15760570
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+77000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15566689
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+57000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15725794
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+63000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15673539
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+73000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15705298
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+112000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15675791
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15747043
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+117000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15736397
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+38000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15678201
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+74000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15720745
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+137000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15637593
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15598070
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+60000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15787550
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+54000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15603942
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+134000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15733973
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+113000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15596761
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+125000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15652400
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+50000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15717893
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+70000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15622585
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+96000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15733964
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+50000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15753861
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+141000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15747097
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15594762
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+75000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15667417
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+104000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15684861
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+55000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15742204
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+32000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15623502
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+60000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15774872
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+138000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15611191
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+82000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15674331
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+52000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15619465
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+30000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15575247
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+131000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15695679
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+60000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15713463
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15785170
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+75000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15796351
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+118000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15639576
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+107000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15693264
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+51000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15589715
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+119000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15769902
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+65000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15587177
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+65000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15814553
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+60000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15601550
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+54000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15664907
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+144000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15612465
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15810800
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+55000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15665760
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+122000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15588080
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+104000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15776844
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+75000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15717560
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+65000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15629739
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+51000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15729908
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+105000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15716781
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+63000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15646936
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15768151
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+108000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15579212
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+77000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15721835
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+61000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15800515
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+113000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15591279
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+75000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15587419
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+90000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15750335
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+57000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15699619
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+99000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15606472
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+34000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15778368
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+70000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15671387
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+72000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15573926
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+71000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15709183
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+54000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15577514
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+129000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15778830
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+34000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15768072
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+50000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15768293
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+79000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15654456
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+104000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15807525
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+29000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15574372
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+47000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15671249
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+88000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15779744
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+71000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15624755
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+26000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15611430
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+46000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15774744
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+83000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15629885
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+73000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15708791
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+130000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15793890
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+80000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15646091
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+32000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15596984
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+74000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15800215
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+53000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15577806
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+87000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15749381
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+23000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15683758
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+64000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15670615
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+33000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15715622
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+139000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15707634
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+28000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15806901
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+33000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15775335
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+60000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15724150
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+39000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15627220
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+71000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15672330
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+34000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15668521
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+35000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15807837
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+33000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15592570
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+23000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15748589
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+45000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15635893
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+42000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15757632
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+59000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15691863
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+41000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15706071
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+23000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15654296
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+20000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15755018
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+33000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+15594041
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+36000
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Here we have a data on individuals’ age, estimated salary, gender, and
+whether or not they purchase insurances: 1 is for <strong>yes</strong> and 0 for <strong>no</strong>.</p>
+<p><strong>Our objective here</strong> would be to predict, based on someone’s gender, age, and
+estimated salary, whether or not they would have or purchase an insurance.</p>
+<p>So to start with, let’s load the necessary packages:</p>
+<pre class="r"><code>require(caret)
+require(e1071)
+require(reshape2)</code></pre>
+<p>where <code>caret</code> is for easing the ML workflow, particularly
+here for separating the data into two parts: one part (80%)
+for training the model and the other part (20%) for testing
+the model afterwards; <code>e1071</code> is the package containing the SVM
+functions, and <code>reshape2</code> for reshaping the dataframe.</p>
+<p>Next, seeing the data <code>dat</code> again, we know that the variable <code>User.ID</code>
+will affect nothing on the outcome, so let’s remove it:</p>
+<pre class="r"><code>dat_n &lt;- dat[,-c(1)]
+head(dat_n) %&gt;%
+  kable() %&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;, &quot;responsive&quot;))</code></pre>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Gender
+</th>
+<th style="text-align:right;">
+Age
+</th>
+<th style="text-align:right;">
+EstimatedSalary
+</th>
+<th style="text-align:right;">
+Purchased
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+19000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+20000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+43000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+57000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+76000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+58000
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p>Next, let’s make the <code>Purchased</code> column into <code>factor</code> with two levels in <code>R</code>.
+To do this, we simply need to apply the <code>factor</code> function:</p>
+<pre class="r"><code>dat_n$Purchased &lt;- factor(dat_n$Purchased, levels = c(0, 1))</code></pre>
+<p>Now it’s time for <code>caret</code> to do its job. We split the data into
+<code>train.data</code> and <code>test.data</code>:</p>
+<pre class="r"><code>set.seed(123)
+training.samples &lt;- dat_n$Purchased %&gt;%
+    createDataPartition(p = 0.8, list = FALSE)
+train.data  &lt;- dat_n[training.samples,]
+test.data  &lt;- dat_n[-training.samples,]</code></pre>
+<p>and that concludes the pre-process. Let’s train.</p>
+<hr />
+</div>
+<div id="training-the-model" class="section level1">
+<h1>Training the Model</h1>
+<div id="linear-kernel" class="section level2">
+<h2>Linear kernel</h2>
+<p>The formula for SVM model here is embedded in the
+<code>e1071</code> package. The parameters that we use
+(<code>C-classification</code> and <code>linear</code>) are the default ones,
+although we can use others if we want (and we will try it
+later in this blog).</p>
+<p>So let’s start by making this linear-classifier:</p>
+<pre class="r"><code>class.lin &lt;- svm(formula = Purchased ~ factor(Gender)*Age*EstimatedSalary, 
+                 data = train.data, 
+                 type = &#39;C-classification&#39;, 
+                 kernel = &#39;linear&#39;) </code></pre>
+<p>And then immediately, let’s test it on the <code>test.data</code>:</p>
+<pre class="r"><code>res_pred.lin &lt;- predict(class.lin, newdata = test.data) </code></pre>
+<p>To check the results, we use the confusion matrix function,
+embedded in <code>caret</code> package, and <code>ggplot2</code> for visualization:</p>
+<pre class="r"><code># Making the Confusion Matrix 
+cm.lin &lt;- confusionMatrix(test.data$Purchased, res_pred.lin)
+cm_tb.lin &lt;- melt(cm.lin$table)
+ggplot(cm_tb.lin, aes(Prediction, Reference)) + 
+  geom_tile(aes(fill=value))+
+  geom_text(aes(label=value), size=7)+
+  scale_fill_gradient2(low = &quot;blue&quot;, high = &quot;red&quot;, mid = &quot;white&quot;,
+                       limit = c(min(cm_tb.lin$value),max(cm_tb.lin)))+
+  scale_x_continuous(breaks=c(0,1), 
+                   labels=c(0,1))+
+  scale_y_continuous(breaks=c(0,1), 
+                   labels=c(0,1))+
+  xlab(&quot;Predicted results&quot;)+ylab(&quot;Data&quot;)</code></pre>
+<p><img src="/posts/2019-12-02-classification-using-svm-beginner-s-tale-in-r_files/figure-html/confmatrix.lin-1.png" width="576" /></p>
+<p>What does this mean? It means that, in the <code>test.data</code>,
+among the 51 people who doesn’t have insurance (<code>0</code>), we successfully
+predicted 46 of them and for those who have (<code>28</code>), 22 have been
+successfully predicted.</p>
+<p>In average, the success rate of this prediction is:</p>
+<pre class="r"><code>rate_0 = cm.lin$table[1,1]/sum(cm.lin$table[1,])*100 # in percent
+rate_1 = cm.lin$table[2,2]/sum(cm.lin$table[2,])*100 # in percent
+print(paste(&quot;Res = 1 is &quot;,round(rate_1,2),&quot;% and for Res = 0 is &quot;,round(rate_0,2),&quot;%.&quot;, sep=&quot;&quot;))</code></pre>
+<pre><code>## [1] &quot;Res = 1 is 78.57% and for Res = 0 is 90.2%.&quot;</code></pre>
+<p>Quite good already. But perhaps we can do better? Let’s
+redo these analysis but with kernel type <code>polynomial</code>.</p>
+</div>
+<div id="polynomial-kernel" class="section level2">
+<h2>Polynomial kernel</h2>
+<p>To start, let’s make this polynomial-classifier:</p>
+<pre class="r"><code>class.pol &lt;- svm(formula = Purchased ~ factor(Gender)*Age*EstimatedSalary, 
+                 data = train.data, 
+                 type = &#39;C-classification&#39;, 
+                 kernel = &#39;polynomial&#39;) </code></pre>
+<p>And then immediately, let’s test it on the <code>test.data</code>:</p>
+<pre class="r"><code>res_pred.pol &lt;- predict(class.pol, newdata = test.data) </code></pre>
+<p>Visualize the results:</p>
+<pre class="r"><code># Making the Confusion Matrix 
+cm.pol &lt;- confusionMatrix(test.data$Purchased, res_pred.pol)
+cm_tb.pol &lt;- melt(cm.pol$table)
+ggplot(cm_tb.pol, aes(Prediction, Reference)) + 
+  geom_tile(aes(fill=value))+
+  geom_text(aes(label=value), size=7)+
+  scale_fill_gradient2(low = &quot;blue&quot;, high = &quot;red&quot;, mid = &quot;white&quot;,
+                       limit = c(min(cm_tb.pol$value),max(cm_tb.pol)))+
+  scale_x_continuous(breaks=c(0,1), 
+                   labels=c(0,1))+
+  scale_y_continuous(breaks=c(0,1), 
+                   labels=c(0,1))+
+  xlab(&quot;Predicted results&quot;)+ylab(&quot;Data&quot;)</code></pre>
+<p><img src="/posts/2019-12-02-classification-using-svm-beginner-s-tale-in-r_files/figure-html/confmatrix.pol-1.png" width="576" /></p>
+<p>And calculate the success rate of this classifier:</p>
+<pre class="r"><code>rate_0.pol = cm.pol$table[1,1]/sum(cm.pol$table[1,])*100 # in percent
+rate_1.pol = cm.pol$table[2,2]/sum(cm.pol$table[2,])*100 # in percent
+print(paste(&quot;Res = 1 is &quot;,round(rate_1.pol,2),&quot;% and for Res = 0 is &quot;,round(rate_0.pol,2),&quot;%.&quot;, sep=&quot;&quot;))</code></pre>
+<pre><code>## [1] &quot;Res = 1 is 85.71% and for Res = 0 is 94.12%.&quot;</code></pre>
+<p>Quite an increase, particularly for <code>Res = 1</code>. For the last test,
+let’s do one but with kernel type exponential or <code>radial basis</code>.</p>
+</div>
+<div id="exponential-kernel" class="section level2">
+<h2>Exponential kernel</h2>
+<p>To start again, let’s make the classifier:</p>
+<pre class="r"><code>class.exp &lt;- svm(formula = Purchased ~ factor(Gender)*Age*EstimatedSalary, 
+                 data = train.data, 
+                 type = &#39;C-classification&#39;, 
+                 kernel = &#39;radial&#39;) </code></pre>
+<p>And then immediately, let’s test it on the <code>test.data</code>:</p>
+<pre class="r"><code>res_pred.exp &lt;- predict(class.exp, newdata = test.data) </code></pre>
+<p>Visualize the results:</p>
+<pre class="r"><code># Making the Confusion Matrix 
+cm.exp &lt;- confusionMatrix(test.data$Purchased, res_pred.exp)
+cm_tb.exp &lt;- melt(cm.exp$table)
+ggplot(cm_tb.exp, aes(Prediction, Reference)) + 
+  geom_tile(aes(fill=value))+
+  geom_text(aes(label=value), size=7)+
+  scale_fill_gradient2(low = &quot;blue&quot;, high = &quot;red&quot;, mid = &quot;white&quot;,
+                       limit = c(min(cm_tb.exp$value),max(cm_tb.exp)))+
+  scale_x_continuous(breaks=c(0,1), 
+                   labels=c(0,1))+
+  scale_y_continuous(breaks=c(0,1), 
+                   labels=c(0,1))+
+  xlab(&quot;Predicted results&quot;)+ylab(&quot;Data&quot;)</code></pre>
+<p><img src="/posts/2019-12-02-classification-using-svm-beginner-s-tale-in-r_files/figure-html/confmatrix.exp-1.png" width="576" /></p>
+<p>And calculate the success rate of this classifier:</p>
+<pre class="r"><code>rate_0.exp = cm.exp$table[1,1]/sum(cm.exp$table[1,])*100 # in percent
+rate_1.exp = cm.exp$table[2,2]/sum(cm.exp$table[2,])*100 # in percent
+print(paste(&quot;Res = 1 is &quot;,round(rate_1.exp,2),&quot;% and for Res = 0 is &quot;,round(rate_0.exp,2),&quot;%.&quot;, sep=&quot;&quot;))</code></pre>
+<pre><code>## [1] &quot;Res = 1 is 89.29% and for Res = 0 is 90.2%.&quot;</code></pre>
+<p>Apparently, it increases the accuracy for <code>Res = 1</code> but decreases it for <code>Res = 0</code>.
+The results for both are becoming more balanced (both are close to 90% now)
+but with the price of lowering the accuracy for one of them.</p>
+<hr />
+</div>
+</div>
+<div id="closing" class="section level1">
+<h1>Closing</h1>
+<p>In this quick and simple dive into SVM, we have tried to
+predict whether or not someone’s going to have insurance based
+on their age, gender, and salary. Results show an increase between
+the <code>linear</code> and <code>polynomial</code> kernel, but not so for the <code>radial</code> one.
+If we want to get a more balanced result here, using <code>radial</code> is definitely
+the way to go.</p>
+<p>Next step? Visualizing this, definitely. I’ll try to make it ASAP
+on this blog too, and perhaps comparing this method with others (<code>glm</code> anyone?)</p>
+<p>Thanks for reading!</p>
+</div>
+
+</div>
+
+  
+<footer class='entry-footer'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/r/'>R</a>, <a class='tag' href='/tags/tutorial/'>tutorial</a>, <a class='tag' href='/tags/machine-learning/'>machine-learning</a>, <a class='tag' href='/tags/svm/'>SVM</a>, <a class='tag' href='/tags/classification/'>classification</a></div>
+
+  </div>
+</footer>
+
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/posts/how-to-download-google-form-s-survey-responses-as-csv-file/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>How to download Google Forms&#39; survey responses as CSV file</a>
+    </div></div>
+</nav>
+
+
+<section id='comments' class='comments'>
+  <div class='container sep-before'>
+    <div class='comments-area'><div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "le-cahier-dahmad" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+  </div>
+</section>
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/ahmad-alkadri' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='mailto:ahmad.alkadri@outlook.com' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <polyline points="22,6 12,13 2,6"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/alkadri' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section><div class='copyright'>
+  <p> &copy; 2019 Ahmad Alkadri </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><script>window.__assets_js_src="/assets/js/"</script>
+
+<script src='/assets/js/main.67d669ac.js'></script><script src='/js/custom.js'></script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

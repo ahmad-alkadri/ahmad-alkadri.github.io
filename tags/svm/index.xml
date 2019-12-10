@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SVM on Le Cahier</title>
+    <link>/tags/svm/</link>
+    <description>Recent content in SVM on Le Cahier</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/svm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Classification using SVM: Beginner&#39;s Tale in R </title>
+      <link>/posts/classification-using-svm-beginner-s-tale-in-r/</link>
+      <pubDate>Mon, 02 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/classification-using-svm-beginner-s-tale-in-r/</guid>
+      <description>This is literally the first time I’ve ever tried using SVM. I’m not so big on all this “Machine Learning” thing; most of the time I use R merely for data analysis, statistics, and visualizations.
+But after careful reading it seems that SVM could be really useful for quick data classification, especially for predicting if the result is going to be binary (Yes or No, A or B, 1 or 0, etc.</description>
+    </item>
+    
+  </channel>
+</rss>
