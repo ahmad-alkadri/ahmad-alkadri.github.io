@@ -6,19 +6,10 @@
     <description>Recent content in Posts on Le Cahier</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Dusting Off</title>
-      <link>/posts/dusting-off/</link>
-      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/dusting-off/</guid>
-      <description>To say that a lot of things have changed these past few months would be quite an understatement. For me, personally, it’s been quite difficult, challenging, and for sure, many other changes would happen in the coming weeks. What I can say for now is these: + my contract with Henri SELMER Paris has ended + I’ve gotten myself a new, permanent contract with another company + will update you more about it in the coming weeks, but for now I can say, quite comfortably, thay–boy–I made a good choice to learn Python and Cast3m.</description>
-    </item>
     
     <item>
       <title>Classification using SVM: Beginner&#39;s Tale in R </title>
@@ -67,7 +58,7 @@ I first started to use R because I’m interested in its visualization capabilit
       
       <guid>/posts/embedding-video/</guid>
       <description>I’ve just read this article about embedding YouTube videos using this simple blogdown function:
-blogdown::shortcode(&amp;quot;youtube&amp;quot;, &amp;quot;P3aGk_Gwqjw&amp;quot;)   where &amp;quot;P3aGk_Gwqjw&amp;quot; is the video’s YouTube ID.
+blogdown::shortcode(&amp;quot;youtube&amp;quot;, &amp;quot;P3aGk_Gwqjw&amp;quot;)   where &#34;P3aGk_Gwqjw&#34; is the video’s YouTube ID.
 And that’s all. No wasted lines; very efficient. I think I will never cease to be amazed by R developers. The possibilities are truly endless now.
 PS: “Electro swing”. Check it out on YouTube. Thank me later.</description>
     </item>
