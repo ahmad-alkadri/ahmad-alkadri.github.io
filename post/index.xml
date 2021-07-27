@@ -5,7 +5,18 @@
     <link>/post/</link>
     <description>Recent content in Posts on Cahier de ma vie</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 26 Jul 2021 00:00:00 +0200</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Jul 2021 00:00:00 +0200</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finally Deployed</title>
+      <link>/finallydeployed/</link>
+      <pubDate>Tue, 27 Jul 2021 00:00:00 +0200</pubDate>
+      
+      <guid>/finallydeployed/</guid>
+      <description>When people said that it&amp;rsquo;s more difficult to find the correct information on the internet than to find the informations themseves, they weren&amp;rsquo;t kidding.
+It took me several hours to finally found the right tutorial slash guide to finally deploy this little Hugo blog as its own Github Pages.
+So, shoutout to the owner and writer of this page. And to anyone else looking to deploy Hugo on Github Pages, go read their guide––it&amp;rsquo;s so clear and, what&amp;rsquo;s better, it works.</description>
+    </item>
+    
     <item>
       <title>A Restart</title>
       <link>/arestart/</link>
