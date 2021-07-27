@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Cahier de ma vie</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Cahier de ma vie</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 26 Jul 2021 00:00:00 +0200</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Restart</title>
+      <link>/arestart/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0200</pubDate>
+      
+      <guid>/arestart/</guid>
+      <description>Dusting off, finally?</description>
+    </item>
+    
+  </channel>
+</rss>
