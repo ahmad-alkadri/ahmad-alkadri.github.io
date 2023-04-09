@@ -1,17 +1,13 @@
-baseurl = "/"
-title = "Cahier de ma vie"
-theme = "PaperMod"
+baseURL = '/'
+languageCode = 'en-us'
+title = 'Ahmad Alkadri'
+theme = 'PaperMod'
 
 [Params]
     mainSections = ["post"]
-    intro = true
-    headline = "My headline"
-    description = "My description"
     github = "https://github.com/ahmad-alkadri"
-    twitter = "https://twitter.com/a_alkadri"
     email = "ahmad.alkadri@outlook.com"
     opengraph = true
-    shareTwitter = true
     dateFormat = "Mon, Jan 2, 2006"
 
 [Permalinks]
