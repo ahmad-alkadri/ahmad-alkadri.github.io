@@ -4,7 +4,7 @@ title = 'Ahmad Alkadri'
 theme = 'PaperMod'
 
 [Params]
-    mainSections = ["post"]
+    mainSections = ["posts"]
     github = "https://github.com/ahmad-alkadri"
     email = "ahmad.alkadri@outlook.com"
     opengraph = true

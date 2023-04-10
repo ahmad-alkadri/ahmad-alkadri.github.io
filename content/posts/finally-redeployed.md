@@ -1,10 +1,10 @@
 ---
 title: "Finally Redeployed"
 date: 2023-04-10T00:03:06+02:00
+hideSummary: false
+description: Dusting off. Seriously, it's been a while since I used Hugo.
+    Glad I still can manage to make it work.
 ---
-
-Dusting off. Seriously though, it's been a while since I touched Hugo.
-Glad I still can manage to make it work.
 
 Why the return? Well I already have my own website at Wordpress [here](https://ahmadalkadri.com),
 but seeing the changes in its premium plan, and its overly complex interface
