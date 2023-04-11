@@ -6,7 +6,7 @@ description: A little blog from my recent efforts learning Rust and Japanese lan
 hideSummary: false
 ---
 
-Adulthood really has its way of taking up so much of our waking time, doesn’t it? It feels like it was only yesterday I was upset by the end of Heroku’s free plan. A blink of an eye and suddenly we’re closer to the end of Spring and the beginning of Summer than we are to the snowy days in Luxembourg.
+Adulthood really has its way of taking up so much of our waking time, doesn’t it? It feels like it was only yesterday I was upset by [the end of Heroku’s free plan](/posts/saying-goodbye-to-heroku). A blink of an eye and suddenly we’re closer to the end of Spring and the beginning of Summer than we are to the snowy days in Luxembourg.
 
 Time flies.
 
