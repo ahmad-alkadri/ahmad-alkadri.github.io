@@ -21,5 +21,5 @@ Today, I work as a Senior Simulation Engineer at [Leko Labs](https://lekolabs.co
 Nowadays I work a lot more with Python for doing simulations, especially
 building construction simulations. I also wrote some ML codes and bots to automate
 some processes. In my spare time I read books, play music, or travel.
-I don’t know yet what will I do with this blog, but for now,
-I’d like to make it as another one of my little corners on the web.
+I don’t know yet what will I do with this blog (maybe just blogging codes), but for now,
+I’ll just make it as another one of my little corners on the web.

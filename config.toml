@@ -2,6 +2,7 @@ baseURL = '/'
 languageCode = 'en-us'
 title = 'Ahmad Alkadri'
 theme = 'PaperMod'
+disqusShortname = 'cahier-d-ahmad'
 
 [Params]
     mainSections = ["posts"]
