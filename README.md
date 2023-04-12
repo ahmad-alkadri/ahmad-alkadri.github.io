@@ -10,7 +10,13 @@ You're free to clone and try to adapt my blog as a template for your own. Just m
 you have Hugo installed. See their official website on [how to install](https://gohugo.io/installation/) and
 [get started](https://gohugo.io/getting-started/quick-start/) with it.
 
-Once you clone this repository, to make a new post, simply use the `hugo new post` command, such as:
+Once you clone this repository, firstly make sure that the theme submodule is properly updated:
+
+```bash
+git submodule update --init --recursive
+```
+
+Next, to make a new post, simply use the `hugo new post` command, such as:
 
 ```bash
 hugo new posts/my-first-post.md
