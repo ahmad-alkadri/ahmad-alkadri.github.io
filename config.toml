@@ -1,0 +1,15 @@
+baseURL = '/'
+languageCode = 'en-us'
+title = 'Ahmad Alkadri'
+theme = 'PaperMod'
+publishDir = 'docs'
+
+[Params]
+    mainSections = ["posts"]
+    github = "https://github.com/ahmad-alkadri"
+    email = "ahmad.alkadri@outlook.com"
+    opengraph = true
+    dateFormat = "Mon, Jan 2, 2006"
+
+[Permalinks]
+    post = "/:filename/"

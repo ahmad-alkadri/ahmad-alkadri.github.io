@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ahmad Alkadri</title>
+    <link>/</link>
+    <description>Recent content on Ahmad Alkadri</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Apr 2023 10:01:10 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code and Kanji: Small Notes from Learning Rust and Japanese</title>
+      <link>/posts/learning-notes-rust-japanese/</link>
+      <pubDate>Mon, 10 Apr 2023 10:01:10 +0200</pubDate>
+      
+      <guid>/posts/learning-notes-rust-japanese/</guid>
+      <description>A little blog from my recent efforts learning Rust and Japanese language</description>
+    </item>
+    
+    <item>
+      <title>Finally Redeployed</title>
+      <link>/posts/finally-redeployed/</link>
+      <pubDate>Mon, 10 Apr 2023 00:03:06 +0200</pubDate>
+      
+      <guid>/posts/finally-redeployed/</guid>
+      <description>Dusting off. Seriously, it&amp;#39;s been a while since I used Hugo. Glad I still can manage to make it work.</description>
+    </item>
+    
+    <item>
+      <title>Saying Goodbye to Heroku</title>
+      <link>/posts/saying-goodbye-to-heroku/</link>
+      <pubDate>Sun, 04 Dec 2022 18:47:22 +0200</pubDate>
+      
+      <guid>/posts/saying-goodbye-to-heroku/</guid>
+      <description>On the end of Heroku&amp;#39;s free tier and what it means for me.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/page/about/</link>
+      <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/page/about/</guid>
+      <description>Things about me.</description>
+    </item>
+    
+  </channel>
+</rss>

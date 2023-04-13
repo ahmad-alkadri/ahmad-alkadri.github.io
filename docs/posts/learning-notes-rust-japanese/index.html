@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Code and Kanji: Small Notes from Learning Rust and Japanese | Ahmad Alkadri</title>
+<meta name="keywords" content="">
+<meta name="description" content="A little blog from my recent efforts learning Rust and Japanese language">
+<meta name="author" content="">
+<link rel="canonical" href="/posts/learning-notes-rust-japanese/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Code and Kanji: Small Notes from Learning Rust and Japanese" />
+<meta property="og:description" content="A little blog from my recent efforts learning Rust and Japanese language" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/learning-notes-rust-japanese/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-10T10:01:10+02:00" />
+<meta property="article:modified_time" content="2023-04-10T10:01:10+02:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Code and Kanji: Small Notes from Learning Rust and Japanese"/>
+<meta name="twitter:description" content="A little blog from my recent efforts learning Rust and Japanese language"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "/posts/"
+    }
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Code and Kanji: Small Notes from Learning Rust and Japanese",
+      "item": "/posts/learning-notes-rust-japanese/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Code and Kanji: Small Notes from Learning Rust and Japanese",
+  "name": "Code and Kanji: Small Notes from Learning Rust and Japanese",
+  "description": "A little blog from my recent efforts learning Rust and Japanese language",
+  "keywords": [
+    
+  ],
+  "articleBody": "Adulthood really has its way of taking up so much of our waking time, doesn’t it? It feels like it was only yesterday I was upset by the end of Heroku’s free plan. A blink of an eye and suddenly we’re closer to the end of Spring and the beginning of Summer than we are to the snowy days in Luxembourg.\nTime flies.\nWhat happened in the meantime for me was a lot. Work stuff, of course, as usual, doing some design and engineering stuff. On the other hand, there are also my recent adventures in learning new things. A couple of those stood out for me: the first is learning Rust using ChatGPT, and the second is my experience with learning Japanese through mobile apps.\nFirstly, let’s talk about ChatGPT. I think by now everybody knows what ChatGPT is. Especially with the latest release of its model, in which it has made some great achievements. I’ll admit that I’m probably among the early users of it, for a lot of reasons, but mostly for helping me code. Sure, some people say that it’s terrible for coding, mostly because there are some mismatches between the versioning of the modules it’s using, and bizarrely it also put out some methods or packages that don’t exist, but I think one of its strongest strengths (at least for me) is for teaching new languages.\nAnd that’s basically the majority of my uses of it. Since December last year, I’ve been using this AI-powered language model to learn several programming languages. One of them, the one I’m focusing on most right now, is Rust.\nRust, as many of you may already know, is a systems programming language that focuses on safety, concurrency, and performance. One of its core features is the ownership system, which ensures memory safety without a garbage collector. This, in turn, leads to more predictable performance and efficient memory management. For example, consider the following code snippet:\nfn main() { let s1 = String::from(\"Hello, world!\"); let s2 = s1; println!(\"{}\", s1); } In this example, Rust’s ownership system prevents the use of s1 after transferring ownership to s2. This eliminates the risk of a double-free error, ensuring memory safety.\nAnother positive aspect of Rust is its strong community support, which has led to the creation of numerous libraries and frameworks, such as Actix for web development or Tokio for asynchronous runtime. Let me tell you this though; I love how Rust handles its async functionality. Having been working with async-await on mostly JavaScript (Node.js), I’ve been getting such a fresh feeling from Rust. Especially with its great compiler, deploying web apps (backend, APIs, etc.) is really a breeze.\nTruly, maybe one day I should write a full blog about the whole async functionalities in Rust. It’s going to take more than one post, though, of that I’m sure.\nOn a different note, I’ve been learning Japanese using mobile apps. I started out with only Duolingo, but these days I’m also advancing with Busuu. I like Duolingo’s casualness and more “fun” vibe, but Busuu’s structure has been particularly rewarding, especially in my efforts to learn the grammar. Really, Japanese is surprisingly a grammar-heavy language, with strong underlining and differences between casual vs formal tones and words.\nAlso, surprisingly, while kanji is very intimidating, after a while, once you get the hang of basic kanji characters, they’re actually super helpful in understanding sentences and phrases way faster. It’s like having a shortcut when you’re reading, without needing to figure out every single hiragana or katakana character.\nTake this sentence: “わたしはほんをよみます” (Watashi wa hon wo yomimasu). Now check it out with kanji: “私は本を読みます.” See how the kanji characters 私 (watashi: I), 本 (hon: book), and 読 (yomi: read) give you the key info you need to understand that the sentence means “I read a book”. Pretty neat!\nHere’s another longer one: “かのじょはとうきょうにすんでいます” (Kanojo wa Toukyou ni sunde imasu). With kanji, it becomes “彼女は東京に住んでいます.” The kanji characters 彼女 (kanojo: she), 東京 (Toukyou), and 住 (sumu: lives) help you figure out that the sentence is saying “She lives in Tokyo.” Super handy.\nHowever, while these apps–Busuu, Duolingo, and others–offer a convenient and efficient way to learn the language (I literally learn mostly when on the bus haha), the lack of a conversation partner has proven to be a significant disadvantage. It’s one thing being able to understand texts from manga and novels, or even understanding what is being sung or said in J-Pop songs or J-Drama films, but it’s fully different once I tried to express myself in Japanese. Especially when it starts being a back-and-forth conversation.\nFor that, I think I definitely need some people I can speak and interact with, every day.\nI remember eight, seven years ago, when I arrived in France for my Master’s. Even with B1 certification; ultimately it was by immersing myself in the language and using it daily with native speakers that made me become really fluent. This is why these days I’ve been trying to find a Japanese learning community with whom I can practice and grow together.\nIn conclusion, the past few months have been filled with challenges and growth as I’ve dived into the world of Rust and Japanese. Utilizing tools like ChatGPT and mobile apps has given me the opportunity to expand my skill set, but the importance of direct human interaction in learning is still unmatchable. Going forward I think I’ll start sharing more notes from my efforts in learning, be it Rust or other programming languages or frameworks or Japanese.\n",
+  "wordCount" : "927",
+  "inLanguage": "en",
+  "datePublished": "2023-04-10T10:01:10+02:00",
+  "dateModified": "2023-04-10T10:01:10+02:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/posts/learning-notes-rust-japanese/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ahmad Alkadri",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="/" accesskey="h" title="Ahmad Alkadri (Alt + H)">Ahmad Alkadri</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="/page/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Code and Kanji: Small Notes from Learning Rust and Japanese
+    </h1>
+    <div class="post-description">
+      A little blog from my recent efforts learning Rust and Japanese language
+    </div>
+    <div class="post-meta"><span title='2023-04-10 10:01:10 +0200 CEST'>Mon, Apr 10, 2023</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Adulthood really has its way of taking up so much of our waking time, doesn’t it? It feels like it was only yesterday I was upset by <a href="/posts/saying-goodbye-to-heroku">the end of Heroku’s free plan</a>. A blink of an eye and suddenly we’re closer to the end of Spring and the beginning of Summer than we are to the snowy days in Luxembourg.</p>
+<p>Time flies.</p>
+<p>What happened in the meantime for me was a lot. Work stuff, of course, as usual, doing some design and engineering stuff. On the other hand, there are also my recent adventures in learning new things. A couple of those stood out for me: the first is learning Rust using ChatGPT, and the second is my experience with learning Japanese through mobile apps.</p>
+<p>Firstly, let’s talk about ChatGPT. I think by now everybody knows what ChatGPT is. Especially with the latest release of its model, in which it has made some great achievements. I’ll admit that I’m probably among the early users of it, for a lot of reasons, but mostly for helping me code. Sure, some people say that it’s terrible for coding, mostly because there are some mismatches between the versioning of the modules it’s using, and bizarrely it also put out some methods or packages that don’t exist, but I think one of its strongest strengths (at least for me) is for teaching new languages.</p>
+<p>And that’s basically the majority of my uses of it. Since December last year, I’ve been using this AI-powered language model to learn several programming languages. One of them, the one I’m focusing on most right now, is Rust.</p>
+<p>Rust, as many of you may already know, is a systems programming language that focuses on safety, concurrency, and performance. One of its core features is the ownership system, which ensures memory safety without a garbage collector. This, in turn, leads to more predictable performance and efficient memory management. For example, consider the following code snippet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> s1 <span style="color:#f92672">=</span> String::from(<span style="color:#e6db74">&#34;Hello, world!&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> s2 <span style="color:#f92672">=</span> s1;
+</span></span><span style="display:flex;"><span>    println!(<span style="color:#e6db74">&#34;{}&#34;</span>, s1);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this example, Rust’s ownership system prevents the use of s1 after transferring ownership to s2. This eliminates the risk of a double-free error, ensuring memory safety.</p>
+<p>Another positive aspect of Rust is its strong community support, which has led to the creation of numerous libraries and frameworks, such as Actix for web development or Tokio for asynchronous runtime. Let me tell you this though; I love how Rust handles its async functionality. Having been working with async-await on mostly JavaScript (Node.js), I’ve been getting such a fresh feeling from Rust. Especially with its great compiler, deploying web apps (backend, APIs, etc.) is really a breeze.</p>
+<p>Truly, maybe one day I should write a full blog about the whole async functionalities in Rust. It’s going to take more than one post, though, of that I’m sure.</p>
+<hr>
+<p>On a different note, I’ve been learning Japanese using mobile apps. I started out with only Duolingo, but these days I’m also advancing with Busuu. I like Duolingo’s casualness and more “fun” vibe, but Busuu’s structure has been particularly rewarding, especially in my efforts to learn the grammar. Really, Japanese is surprisingly a grammar-heavy language, with strong underlining and differences between casual vs formal tones and words.</p>
+<p>Also, surprisingly, while kanji is very intimidating, after a while, once you get the hang of basic kanji characters, they’re actually super helpful in understanding sentences and phrases way faster. It’s like having a shortcut when you’re reading, without needing to figure out every single hiragana or katakana character.</p>
+<p>Take this sentence: “わたしはほんをよみます” (Watashi wa hon wo yomimasu). Now check it out with kanji: “私は本を読みます.” See how the kanji characters 私 (watashi: I), 本 (hon: book), and 読 (yomi: read) give you the key info you need to understand that the sentence means “I read a book”. Pretty neat!</p>
+<p>Here’s another longer one: “かのじょはとうきょうにすんでいます” (Kanojo wa Toukyou ni sunde imasu). With kanji, it becomes “彼女は東京に住んでいます.” The kanji characters 彼女 (kanojo: she), 東京 (Toukyou), and 住 (sumu: lives) help you figure out that the sentence is saying “She lives in Tokyo.” Super handy.</p>
+<p>However, while these apps–Busuu, Duolingo, and others–offer a convenient and efficient way to learn the language (I literally learn mostly when on the bus haha), the lack of a conversation partner has proven to be a significant disadvantage. It’s one thing being able to understand texts from manga and novels, or even understanding what is being sung or said in J-Pop songs or J-Drama films, but it’s fully different once I tried to express myself in Japanese. Especially when it starts being a back-and-forth conversation.</p>
+<p>For that, I think I definitely need some people I can speak and interact with, every day.</p>
+<p>I remember eight, seven years ago, when I arrived in France for my Master’s. Even with B1 certification; ultimately it was by immersing myself in the language and using it daily with native speakers that made me become really fluent. This is why these days I’ve been trying to find a Japanese learning community with whom I can practice and grow together.</p>
+<hr>
+<p>In conclusion, the past few months have been filled with challenges and growth as I’ve dived into the world of Rust and Japanese. Utilizing tools like ChatGPT and mobile apps has given me the opportunity to expand my skill set, but the importance of direct human interaction in learning is still unmatchable. Going forward I think I’ll start sharing more notes from my efforts in learning, be it Rust or other programming languages or frameworks or Japanese.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="/">Ahmad Alkadri</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
