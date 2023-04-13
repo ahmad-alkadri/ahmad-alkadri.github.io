@@ -3,6 +3,7 @@ languageCode = 'en-us'
 title = 'Ahmad Alkadri'
 theme = 'PaperMod'
 publishDir = 'docs'
+disqusShortName = 'ahmad-alkadri'
 
 [Params]
     mainSections = ["posts"]
