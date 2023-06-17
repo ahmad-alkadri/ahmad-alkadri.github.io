@@ -1,7 +1,6 @@
 ---
 title: "Getting New Hobby and Fixing My Twitter Scrapers"
 date: 2023-06-16T23:17:14+02:00
-draft: true
 category: ["blog", "coding", "personal project"]
 description: Or how I finally decided to stop procrastinating and just simply fix my own old Python module to scrape tweets and generating wordcloud from it.
 hideSummary: false
@@ -17,7 +16,7 @@ Well, those days are gone. Lately weekends are filled more with staying at home,
 
 On the other hand, I also picked up a new hobby since couple months ago. That is learning game development. It's still a bit too early for me to show anything, I've been doing basically nothing except following a lot of tutorials on YouTube to get hands-on learning (note: if you're learning Pygame and looking for some excellent tutorials, I would recommend this channel called [Clear Code](https://www.youtube.com/@ClearCode) wholeheartedly. Hands down the best Pygame tutorials I've ever seen. Practically teaching me about game dev workflow from zero). Nevertheless, I really aim to create my own game one day--maybe I should blog about it more later.
 
-Anyway, this blog shouldn't be about my painful but so far satisfying process of learning game. Not really. What happened was that while I was tidying up my github repo a little bit (so many abandoned weekend projects, *gosh*), I suddenly found my old Tweet Cloud Maker repo again. It was archived, and I remember that it was archived because, after some changes in Twitter API (I believe it was some time early this year), the `snscrape` module--the primary module that I used to scrape tweets from Twitter--stopped working for me. 
+Anyway, this blog shouldn't be about my painful but so far satisfying process of learning game development. Not really. What happened was that about one or two weeks ago, while I was tidying up my github repo a little bit (so many abandoned weekend projects, *gosh*), I suddenly found my old Tweet Cloud Maker repo again. It was archived, and I remember that it was archived because, after some changes in Twitter API (I believe it was some time early this year), the `snscrape` module--the primary module that I used to scrape tweets from Twitter--stopped working for me. 
 
 I remember myself not having too much time back then, and decided to take it down, promising myself to fix it one day.
 
@@ -33,15 +32,15 @@ Sometime around early last year, I started getting more conscious about privacy.
 
 I started looking for alternatives for using many of web services I've been using for a long time: [Invidious](https://invidious.io/) for YouTube, [SearxNG](https://docs.searxng.org/) to replace Google, etc. One of the social media that I used consistently for searching up news around the world quickly is Twitter, and I stumbled upon [Nitter](https://github.com/zedeus/nitter), an alternative Twitter frontend that works with more or less the same principles as Invidious and SearxNG: get the data from the official site using API, strip away all the trackers, and display them in a cleaner, faster interface. 
 
-I like it. It's lightweight, I don't have to install any applications to find out what Elon Musk is tweeting for example. I liked it a lot that I decided to start a weekend project back then called `pytterrator` that, I imagine, would become a simple Python module allowing us to get tweets using Twitter's API and some scraping (if necessary), one that I'd be able to use as a foundation for making a full webapp just like Nitter.
+I like it. It's lightweight, I don't have to install any applications to find out what Elon Musk is tweeting for example. I liked it a lot that I decided to start a weekend project back then called [`pytterrator`](https://github.com/ahmad-alkadri/pytterrator) that, I imagine, would become a simple Python module allowing us to get tweets using Twitter's API and some scraping (if necessary), one that I'd be able to use as a foundation for making a full webapp just like Nitter.
 
 ## What Happened?
 
 Nothing. Long story short lots of things fell upon my lap in 2022 at work. I somehow got promoted. I got new responsibilities. The project gathered dust for months, and in the few moments I got to return to it, I couldn't manage to do anything significant. Couple that with the changes in Twitter's API, I thought to myself that I wouldn't be able to fix and develop it further (or even taking care of my other side-projects) without having to sacrifice my career and sanity.
 
-That kinda changed now. With [the company]() expanding and developing, and more and more automated systems are put in place, I found my works to be much more streammlined and easy to manage lately. It feels good knowing that the company is slowly maturing, no longer a tiny startup comprising of five engineers working together in a single office. Everything started to fall into a more disciplined, consistent and well-structured routines, and I found myself having more time for my own projects (hence starting the game devs hobby lol).
+That kinda changed now. With [the company](https://www.lekolabs.com/news) expanding and developing, and more and more automated systems are put in place, I found my works to be much more streammlined and easy to manage lately. It feels good knowing that the company is slowly maturing, no longer a tiny startup comprising of five engineers working together in a single office. Everything started to fall into a more disciplined, consistent and well-structured routines, and I found myself having more time for my own projects (hence starting the game devs hobby lol).
 
-To cut the story short: I opened up again the `pytterrator` repo and managed to make it work. It's still so raw, no documentations yet put in place (I'll definitely prepare it soon, promise), but it works to scrape tweets from public account. It uses Twitter v1.1 API, it puts some limiters to itself, it can regenerate guest token if needed. So far, it just works.
+To cut the story short: I opened up again the `pytterrator` repo and [managed to make it work](https://github.com/ahmad-alkadri/pytterrator/pull/4). It's still so raw, no documentations yet put in place (I'll definitely prepare it soon, promise), but it works to scrape tweets from public account. It uses Twitter v1.1 API, it puts some limiters to itself, it can regenerate guest token if needed. So far, it just works.
 
 (If you somehow trying it out and found some bugs on it please raise them as Issues or if you want you can help contribute directly! Would be really appreciated!)
 
