@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>So long, and thanks for all the tweets | Ahmad Alkadri</title>
+<title>So Long, and Thanks For All The Tweets (Scraper) | Ahmad Alkadri</title>
 <meta name="keywords" content="">
 <meta name="description" content="As of yesterday, and confirmed by Elon Musk himself (kinda), Twitter requires people to be signed in to see tweets, even public ones. End of an era.">
 <meta name="author" content="">
@@ -56,7 +56,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="So long, and thanks for all the tweets" />
+</noscript><meta property="og:title" content="So Long, and Thanks For All The Tweets (Scraper)" />
 <meta property="og:description" content="As of yesterday, and confirmed by Elon Musk himself (kinda), Twitter requires people to be signed in to see tweets, even public ones. End of an era." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/end-of-twitter-scraper/" /><meta property="article:section" content="posts" />
@@ -64,7 +64,7 @@
 <meta property="article:modified_time" content="2023-07-01T22:23:47+02:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="So long, and thanks for all the tweets"/>
+<meta name="twitter:title" content="So Long, and Thanks For All The Tweets (Scraper)"/>
 <meta name="twitter:description" content="As of yesterday, and confirmed by Elon Musk himself (kinda), Twitter requires people to be signed in to see tweets, even public ones. End of an era."/>
 
 
@@ -82,7 +82,7 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "So long, and thanks for all the tweets",
+      "name": "So Long, and Thanks For All The Tweets (Scraper)",
       "item": "/posts/end-of-twitter-scraper/"
     }
   ]
@@ -92,14 +92,14 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "So long, and thanks for all the tweets",
-  "name": "So long, and thanks for all the tweets",
+  "headline": "So Long, and Thanks For All The Tweets (Scraper)",
+  "name": "So Long, and Thanks For All The Tweets (Scraper)",
   "description": "As of yesterday, and confirmed by Elon Musk himself (kinda), Twitter requires people to be signed in to see tweets, even public ones. End of an era.",
   "keywords": [
     
   ],
-  "articleBody": "Somebody poked me yesterday and told me that my Tweet Cloud Maker hasn’t been working well for whole morning, until finally stopped altogether–just returning warnings of empty results. That was kinda unsurprising to me at first. I just finished working on fixing and rewriting the backend tweet scraper a couple weeks back, and I figured it’d be just one of those bugs that I’d need to fix.\nScreenshot of the app when I checked it After almost an hour of debugging and no result, I finally turned to my most trusted aide: Google. Almost immediately, I got the answer to my question: Twitter now requires an account to view tweets.\nScreenshot from the article After reading the article, I immediately headed over to my next most trusted source of news: Twitter itself. Indeed, users have been apparently noticing this and complaining about it. Everybody now has to be registered and logged in to view tweets. Even from public twitter user. But how about twitter API, especially v1.1?\nWell I launched my Postman almost immediately to check. Expected at least some successes, at least they’d warn everyone before doing something as impactful as revoking one of the most important functionalities of their own publicly available API, right? Something as breaking as this?\nWrong again. The API v1.1 does not work anymore to scrape tweets.\nScreenshot of the API call to get the guest token Screenshot of the API call to get the tweets This is really worldwide changes. Effectively this ends all twitter scraper. Even those that have been used since a longtime by so many people like Nitter. And yes, the developers of Nitter have realized this too–the repo has been alight with discussions.\nToday, Musk finally confirmed, via Twitter, the changes that have happpened. Well, kinda, though, because he didn’t directly addressed it; rather, he said something that I think even worse: all accounts on Twitter are now rate-limited, with the newly unverified accounts can only read 300 tweets per day, old unverified accounts 600 tweets per day, and finally, verified accounts up to 6000 tweets per day.\nMind you, to get yourself verified on Twitter, you’ll have to pay. Musk is saying that these changes are done to address “extreme levels of data scraping \u0026 system manipulation”, but honestly, I don’t buy it. Data scraping is practically unavoidable in the open internet; from search engine to hobbyist (like myself) and even government agencies everybody is doing it, and there are ways to handle it, to prevent it from overburdening your system. IP limiters, device detections… seriously, you can even implement it easily on your app with Flask-Limiter. I don’t see how a company as big as Twitter cannot implement one of these alternative solutions, anything other than what they’re doing right now…\nAnyway, Musk has went on to said that these changes are probably “temporary”. Well, I don’t know if it’s gonna be temporary or not, can’t really trust the words of “higher-ups” these days, but for now I’ve decided to put Tweet Cloud Maker to sleep and put my work on pytterrator on pause. With Nitter also not functioning, I can only say:\nSo long, and thanks for all the tweets\n",
-  "wordCount" : "534",
+  "articleBody": "Yesterday, someone informed me that my Tweet Cloud Maker hadn’t been working well for the entire morning until it finally stopped altogether – it just returned warnings of empty results. At first, this was not surprising to me. I had just finished working on fixing and rewriting the backend tweet scraper a couple of weeks back, and I figured it would be just one of those bugs that I would need to fix.\nScreenshot of the app when I checked it After almost an hour of debugging and no result, I finally turned to my most trusted aide: Google. Almost immediately, I got the answer to my question: Twitter now requires an account to view tweets.\nScreenshot from the article After reading the article, I immediately turned to my next most trusted source of news: Twitter itself. Indeed, users have apparently noticed and have been complaining about the changes. Now, everyone has to be registered and logged in to view tweets, even from public Twitter users. But what about the Twitter API, especially v1.1?\nWell, I launched my Postman almost immediately to check, expecting at least some success. I assumed they would warn everyone before doing something as impactful as revoking one of the most crucial functionalities of their publicly available API, right? Something as disruptive as this?\nI was mistaken. The API v1.1 no longer works for scraping tweets.\nScreenshot of the API call to get the guest token Screenshot of the API call to get the tweets These are truly worldwide changes. They effectively end all Twitter scrapers, even those that have been in use for a long time by many people, like Nitter. And yes, the developers of Nitter have realized this too–the repo has been alight with discussions.\nToday, Musk finally confirmed the changes that have occurred via Twitter. Well, sort of, because he didn’t directly address it; rather, he mentioned something that I think is even worse: all accounts on Twitter are now rate-limited. The newly unverified accounts can only read 300 tweets per day, old unverified accounts can read up to 600 tweets per day, and finally, verified accounts can read up to 6000 tweets per day.\nMind you, to get yourself verified on Twitter, you’ll have to pay. Musk is saying that these changes are being implemented to address “extreme levels of data scraping \u0026 system manipulation”, but honestly, I’m not buying it. Data scraping is practically unavoidable on the open internet; everyone from search engines to hobbyists (like myself) and even government agencies are doing it. There are ways to handle it, to prevent it from overburdening your system. IP limiters, device detection… seriously, you can even implement it easily in your app with Flask-Limiter. I don’t see how a company as big as Twitter cannot implement one of these alternative solutions, anything other than what they’re doing right now…\nAnyway, Musk has gone on to say that these changes are probably “temporary”. Well, I don’t know if they’re going to be temporary or not. I can’t really trust the words of “higher-ups” these days, but for now, I’ve decided to put Tweet Cloud Maker to sleep and put my work on pytterrator on pause. With Nitter also not functioning, I can only say:\nSo long, and thanks for all the tweets\n",
+  "wordCount" : "550",
   "inLanguage": "en",
   "datePublished": "2023-07-01T22:23:47+02:00",
   "dateModified": "2023-07-01T22:23:47+02:00",
@@ -173,7 +173,7 @@
   <header class="post-header">
     
     <h1 class="post-title">
-      So long, and thanks for all the tweets
+      So Long, and Thanks For All The Tweets (Scraper)
     </h1>
     <div class="post-description">
       As of yesterday, and confirmed by Elon Musk himself (kinda), Twitter requires people to be signed in to see tweets, even public ones. End of an era.
@@ -182,12 +182,7 @@
 
 </div>
   </header> 
-  <div class="post-content"><p>Somebody poked me yesterday and told me that my Tweet Cloud Maker hasn&rsquo;t been working
-well for whole morning, until finally stopped altogether&ndash;just returning warnings of
-empty results. That was kinda unsurprising to me at first. I just finished
-working on <a href="/posts/fixing-twitter-scrapers/">fixing and rewriting</a>
-the backend tweet scraper a couple weeks back, and I
-figured it&rsquo;d be just one of those bugs that I&rsquo;d need to fix.</p>
+  <div class="post-content"><p>Yesterday, someone informed me that my Tweet Cloud Maker hadn&rsquo;t been working well for the entire morning until it finally stopped altogether &ndash; it just returned warnings of empty results. At first, this was not surprising to me. I had just finished working on <a href="/posts/fixing-twitter-scrapers/">fixing and rewriting</a> the backend tweet scraper a couple of weeks back, and I figured it would be just one of those bugs that I would need to fix.</p>
 <table>
 <thead>
 <tr>
@@ -216,14 +211,9 @@ Almost immediately, I got the answer to my question: <a href="https://techcrunch
 </tr>
 </tbody>
 </table>
-<p>After reading the article, I immediately headed over to my next most trusted source of news: Twitter itself.
-Indeed, users have been apparently noticing this and complaining about it. Everybody now has to be
-registered and logged in to view tweets. Even from public twitter user. But how about twitter API,
-especially v1.1?</p>
-<p>Well I launched my Postman almost immediately to check. Expected at least some successes,
-at least they&rsquo;d warn everyone before doing something as impactful as revoking one of the most
-important functionalities of their own publicly available API, right? Something as breaking as this?</p>
-<p>Wrong again. The API v1.1 does not work anymore to scrape tweets.</p>
+<p>After reading the article, I immediately turned to my next most trusted source of news: Twitter itself. Indeed, users have apparently noticed and have been complaining about the changes. Now, everyone has to be registered and logged in to view tweets, even from public Twitter users. But what about the Twitter API, especially v1.1?</p>
+<p>Well, I launched my Postman almost immediately to check, expecting at least some success. I assumed they would warn everyone before doing something as impactful as revoking one of the most crucial functionalities of their publicly available API, right? Something as disruptive as this?</p>
+<p>I was mistaken. The API v1.1 no longer works for scraping tweets.</p>
 <table>
 <thead>
 <tr>
@@ -250,14 +240,8 @@ important functionalities of their own publicly available API, right? Something 
 </tr>
 </tbody>
 </table>
-<p>This is really worldwide changes. Effectively this ends all twitter scraper. Even those
-that have been used since a longtime by so many people like <a href="https://github.com/zedeus/nitter/">Nitter</a>.
-And yes, the developers of Nitter have realized this too&ndash;<a href="https://github.com/zedeus/nitter/issues/919">the repo has been alight with discussions</a>.</p>
-<p>Today, Musk finally confirmed, via Twitter, the changes that have happpened. Well, kinda, though,
-because he didn&rsquo;t directly addressed it; rather, he said something that I think even worse:
-all accounts on Twitter are now rate-limited, with the newly unverified accounts can only read
-300 tweets per day, old unverified accounts 600 tweets per day, and finally, verified accounts up
-to 6000 tweets per day.</p>
+<p>These are truly worldwide changes. They effectively end all Twitter scrapers, even those that have been in use for a long time by many people, like <a href="https://github.com/zedeus/nitter/">Nitter</a>. And yes, the developers of Nitter have realized this too&ndash;<a href="https://github.com/zedeus/nitter/issues/919">the repo has been alight with discussions</a>.</p>
+<p>Today, Musk finally confirmed the changes that have occurred via Twitter. Well, sort of, because he didn&rsquo;t directly address it; rather, he mentioned something that I think is even worse: all accounts on Twitter are now rate-limited. The newly unverified accounts can only read 300 tweets per day, old unverified accounts can read up to 600 tweets per day, and finally, verified accounts can read up to 6000 tweets per day.</p>
 <table>
 <thead>
 <tr>
@@ -271,17 +255,8 @@ to 6000 tweets per day.</p>
 </tr>
 </tbody>
 </table>
-<p>Musk is saying that these changes are done to address &ldquo;extreme levels of data scraping &amp; system manipulation&rdquo;,
-but honestly, I don&rsquo;t buy it. Data scraping is practically unavoidable in the open internet; from search engine
-to hobbyist (like myself) and even government agencies everybody is doing it, and there are ways to handle it,
-to prevent it from overburdening your system. IP limiters, device detections&hellip; seriously, you can
-even implement it easily on your app with <a href="https://flask-limiter.readthedocs.io/en/stable/">Flask-Limiter</a>.
-I don&rsquo;t see how a company as big as Twitter cannot implement one of these alternative solutions, anything other
-than what they&rsquo;re doing right now&hellip;</p>
-<p>Anyway, Musk has went on to said that these changes are probably &ldquo;temporary&rdquo;. Well, I don&rsquo;t know
-if it&rsquo;s gonna be temporary or not, can&rsquo;t really trust the words of &ldquo;higher-ups&rdquo; these days,
-but for now I&rsquo;ve decided to put Tweet Cloud Maker to sleep and put my work on <a href="https://github.com/ahmad-alkadri/pytterrator">pytterrator</a>
-on pause. With Nitter also not functioning, I can only say:</p>
+<p>Musk is saying that these changes are being implemented to address &ldquo;extreme levels of data scraping &amp; system manipulation&rdquo;, but honestly, I&rsquo;m not buying it. Data scraping is practically unavoidable on the open internet; everyone from search engines to hobbyists (like myself) and even government agencies are doing it. There are ways to handle it, to prevent it from overburdening your system. IP limiters, device detection&hellip; seriously, you can even implement it easily in your app with <a href="https://flask-limiter.readthedocs.io/en/stable/">Flask-Limiter</a>. I don&rsquo;t see how a company as big as Twitter cannot implement one of these alternative solutions, anything other than what they&rsquo;re doing right now&hellip;</p>
+<p>Anyway, Musk has gone on to say that these changes are probably &ldquo;temporary&rdquo;. Well, I don&rsquo;t know if they&rsquo;re going to be temporary or not. I can&rsquo;t really trust the words of &ldquo;higher-ups&rdquo; these days, but for now, I&rsquo;ve decided to put Tweet Cloud Maker to sleep and put my work on <a href="https://github.com/ahmad-alkadri/pytterrator">pytterrator</a> on pause. With Nitter also not functioning, I can only say:</p>
 <blockquote>
 <p><em>So long, and thanks for all the tweets</em></p>
 </blockquote>
