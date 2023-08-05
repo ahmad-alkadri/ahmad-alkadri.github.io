@@ -1,7 +1,7 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = 'Ahmad Alkadri'
-theme = 'PaperMod'
+theme = 'PaperModSelf'
 publishDir = 'docs'
 disqusShortName = 'ahmad-alkadri'
 
