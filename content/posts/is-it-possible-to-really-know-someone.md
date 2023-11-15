@@ -4,7 +4,6 @@ date: 2023-08-12T11:33:06+01:00
 category: ["blog", "philosophy"]
 description: This shouldn’t have surprised me as much as it does, but I have come to the realization that, in conclusion, we will never fully know or understand others or even ourselves.
 hideSummary: false
-draft: false
 ---
 
 I forgot where I first heard this, and if someone can tell me the source, I’d
