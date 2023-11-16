@@ -1,6 +1,8 @@
 ---
 title: "Finally Redeployed"
 date: 2023-04-10T00:03:06+02:00
+aliases:
+    - /2023/04/10/finally-redeployed/
 hideSummary: false
 description: Dusting off. Seriously, it's been a while since I used Hugo.
     Glad I still can manage to make it work.

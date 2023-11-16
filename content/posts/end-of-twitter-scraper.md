@@ -1,8 +1,11 @@
 ---
 title: "So Long, and Thanks For All The Tweets (Scraper)"
 date: 2023-07-01T22:23:47+02:00
+aliases:
+    - /2023/07/01/so-long-and-thanks-for-all-the-tweets-scraper/
 category: ["blog", "tech"]
 description: As of yesterday, and confirmed by Elon Musk himself (kinda), Twitter requires people to be signed in to see tweets, even public ones. End of an era.
+hideSummary: false
 ---
 
 Yesterday, someone informed me that my Tweet Cloud Maker hadn't been working well for the entire morning until it finally stopped altogether -- it just returned warnings of empty results. At first, this was not surprising to me. I had just finished working on [fixing and rewriting](/posts/fixing-twitter-scrapers/) the backend tweet scraper a couple of weeks back, and I figured it would be just one of those bugs that I would need to fix.

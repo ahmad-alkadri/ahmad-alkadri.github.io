@@ -1,6 +1,8 @@
 ---
 title: "Code and Kanji: Small Notes from Learning Rust and Japanese"
 date: 2023-04-10T10:01:10+02:00
+aliases:
+    - /2023/04/08/code-kanji-notes-learning-rust-japanese/
 category: ["learning notes"]
 description: A little blog from my recent efforts learning Rust and Japanese language
 hideSummary: false
