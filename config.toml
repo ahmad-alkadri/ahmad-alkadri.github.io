@@ -4,6 +4,7 @@ title = 'Ahmad Alkadri'
 theme = 'PaperModSelf'
 publishDir = 'docs'
 disqusShortName = 'ahmad-alkadri'
+paginate = 5
 
 [Params]
     mainSections = ["posts"]
