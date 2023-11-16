@@ -1,6 +1,8 @@
 ---
 title: "Making TL;DR app With GPT"
 date: 2023-05-14T00:19:06+02:00
+aliases:
+    - /2023/05/14/making-tldr-app-with-gpt/
 category: ["learning notes"]
 description: Work's been quite pressing for the past couple of week; for relaxation, I sprint-coded a webapp (using Streamlit) to summarize articles on the web this weekend.
 hideSummary: false
