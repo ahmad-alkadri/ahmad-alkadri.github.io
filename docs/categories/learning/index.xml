@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learning on Ahmad Alkadri</title>
+    <link>/categories/learning/</link>
+    <description>Recent content in Learning on Ahmad Alkadri</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Apr 2023 10:01:10 +0200</lastBuildDate>
+    <atom:link href="/categories/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code and Kanji: Small Notes from Learning Rust and Japanese</title>
+      <link>/posts/learning-notes-rust-japanese/</link>
+      <pubDate>Mon, 10 Apr 2023 10:01:10 +0200</pubDate>
+      <guid>/posts/learning-notes-rust-japanese/</guid>
+      <description>A little blog from my recent efforts learning Rust and Japanese language</description>
+    </item>
+  </channel>
+</rss>

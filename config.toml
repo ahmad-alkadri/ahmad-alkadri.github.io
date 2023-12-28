@@ -57,3 +57,11 @@ url = "mailto:ahmad.alkadri@outlook.com"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
+
+[Params.fuseOpts]
+location = 0
+distance = 2000
+threshold = 0.2
+includeScore = true
+includeMatches = true
+keys = ["title", "content"]
