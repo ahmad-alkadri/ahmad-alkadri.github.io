@@ -15,3 +15,6 @@ paginate = 5
 
 [Permalinks]
     post = "/:filename/"
+
+[taxonomies]
+    category = "categories"
