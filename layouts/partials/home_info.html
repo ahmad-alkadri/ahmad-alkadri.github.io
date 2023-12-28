@@ -1,0 +1,24 @@
+{{- with site.Params.homeInfoParams }}
+<style>
+    .home-info {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 320px;
+        transition: transform 0.1s;
+        margin: var(--gap) 0 calc(var(--gap) * 2) 0;
+    }
+</style>
+<article class="home-info">
+    <header class="entry-header">
+        <h1>{{ .Title | markdownify }}</h1>
+    </header>
+    <div class="entry-content">
+        {{ .Content | markdownify }}
+    </div>
+    <footer class="entry-footer">
+        {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
+    </footer>
+</article>
+{{- end -}}

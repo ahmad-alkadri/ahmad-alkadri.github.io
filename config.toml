@@ -13,6 +13,42 @@ paginate = 5
     opengraph = true
     dateFormat = "Mon, Jan 2, 2006"
 
+[Params.homeInfoParams]
+Title = "Welcome!"
+Content = """
+This is a personal website of mine. Here, I mostly blog. 
+I blog about [a lot of things](/categories/), such as [coding](/categories/coding/), [tech](/categories/tech/),
+a bit into some [personal projects](/categories/projects/) I'm doing or have done.
+Sometimes, I write down [my thoughts](/categories/philosophy/) too.
+
++
+
+For the last four years now, I've been working as Simulation Engineer.
+That is to say, I've done a lot of calculations--mostly *finite element analysis*--using
+Python and [CAST3M](https://www-cast3m.cea.fr/index.php). 
+I also made a lot of full-stack apps for internal tooling use--Streamlit, Flask,
+React, and Next.js are my jam.
+
++
+
+These days, other than work, I'm more into doing some web app development, learning Japanese
+(B1 level now), and reading books. If you want to reach me, feel free to send me some
+[email](mailto:ahmad.alkadri@outlook.com), connect with me on [LinkedIn](https://www.linkedin.com/in/alkadri).
+Otherwise, feel free to browse through my blog and leave comment if you want!
+"""
+
+[[Params.socialIcons]]
+name = "Github"
+url = "https://github.com/ahmad-alkadri"
+
+[[Params.socialIcons]]
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/alkadri"
+
+[[Params.socialIcons]]
+name = "Email"
+url = "mailto:ahmad.alkadri@outlook.com"
+
 [Permalinks]
     post = "/:filename/"
 
