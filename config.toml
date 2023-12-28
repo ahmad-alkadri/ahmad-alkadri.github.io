@@ -34,7 +34,7 @@ React, and Next.js are my jam.
 These days, other than work, I'm more into doing some web app development, learning Japanese
 (B1 level now), and reading books. If you want to reach me, feel free to send me some
 [email](mailto:ahmad.alkadri@outlook.com), connect with me on [LinkedIn](https://www.linkedin.com/in/alkadri).
-Otherwise, feel free to browse through my blog and leave comment if you want!
+Otherwise, feel free to [search and browse](/search) through my blog and leave comment if you want!
 """
 
 [[Params.socialIcons]]
@@ -54,3 +54,6 @@ url = "mailto:ahmad.alkadri@outlook.com"
 
 [taxonomies]
     category = "categories"
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
