@@ -8,17 +8,19 @@
       {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
     </h1>
     {{- if .Description }}
-    <div class="post-description">
+    <div class="post-description"
+      style="font-family: 'Courier New', Courier, monospace; margin: 15px 0 15px 0; line-height: 1.2rem; font-size: 12pt;">
       {{ .Description }}
     </div>
     {{- end }}
     {{- if not (.Param "hideMeta") }}
-    <div class="post-meta">
+    <div class="post-meta" style="margin: 0 0 25px 0;">
       {{- partial "post_meta.html" . -}}
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
     </div>
+    <hr style="opacity: 0.5;">
     {{- end }}
   </header>
   {{- $isHidden := .Params.cover.hidden | default site.Params.cover.hiddenInSingle | default site.Params.cover.hidden }}
@@ -28,7 +30,7 @@
   {{- end }}
 
   {{- if .Content }}
-  <div class="post-content">
+  <div class="post-content" style="margin: 25px 0 0 0;">
     {{- if not (.Param "disableAnchoredHeadings") }}
     {{- partial "anchored_headings.html" .Content -}}
     {{- else }}{{ .Content }}{{ end }}

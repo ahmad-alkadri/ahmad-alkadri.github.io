@@ -3,7 +3,7 @@ title: "Getting New Hobby and Fixing My Twitter Scrapers"
 date: 2023-06-16T23:17:14+02:00
 aliases:
     - /2023/06/16/getting-new-hobby-and-fixing-my-twitter-scrapers/
-category: ["blog", "coding", "personal project"]
+categories: ["Coding", "Projects"]
 description: Or how I finally decided to stop procrastinating and just simply fix my own old Python module to scrape tweets and generating wordcloud from it.
 hideSummary: false
 ---

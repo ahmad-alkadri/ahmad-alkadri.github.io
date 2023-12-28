@@ -5,14 +5,29 @@
     <loc>/</loc>
     <lastmod>2023-10-11T04:29:25+01:00</lastmod>
   </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2023-10-11T04:29:25+01:00</lastmod>
+  </url><url>
+    <loc>/categories/coding/</loc>
+    <lastmod>2023-10-11T04:29:25+01:00</lastmod>
+  </url><url>
     <loc>/posts/matrix-solving-with-julia-and-numpy-as-comparison/</loc>
     <lastmod>2023-10-11T04:29:25+01:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
     <lastmod>2023-10-11T04:29:25+01:00</lastmod>
   </url><url>
+    <loc>/categories/tech/</loc>
+    <lastmod>2023-10-11T04:29:25+01:00</lastmod>
+  </url><url>
     <loc>/posts/is-it-possible-to-really-know-someone/</loc>
     <lastmod>2023-08-12T11:33:06+01:00</lastmod>
+  </url><url>
+    <loc>/categories/philosophy/</loc>
+    <lastmod>2023-08-12T11:33:06+01:00</lastmod>
+  </url><url>
+    <loc>/categories/projects/</loc>
+    <lastmod>2023-07-01T22:23:47+02:00</lastmod>
   </url><url>
     <loc>/posts/end-of-twitter-scraper/</loc>
     <lastmod>2023-07-01T22:23:47+02:00</lastmod>
@@ -20,10 +35,16 @@
     <loc>/posts/fixing-twitter-scrapers/</loc>
     <lastmod>2023-06-16T23:17:14+02:00</lastmod>
   </url><url>
+    <loc>/categories/ai/</loc>
+    <lastmod>2023-05-14T00:19:06+02:00</lastmod>
+  </url><url>
     <loc>/posts/making-tldr-with-gpt/</loc>
     <lastmod>2023-05-14T00:19:06+02:00</lastmod>
   </url><url>
     <loc>/posts/learning-notes-rust-japanese/</loc>
+    <lastmod>2023-04-10T10:01:10+02:00</lastmod>
+  </url><url>
+    <loc>/categories/learning/</loc>
     <lastmod>2023-04-10T10:01:10+02:00</lastmod>
   </url><url>
     <loc>/posts/finally-redeployed/</loc>
@@ -38,8 +59,6 @@
     <loc>/page/</loc>
     <lastmod>2018-11-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
-  </url><url>
-    <loc>/tags/</loc>
+    <loc>/search/</loc>
   </url>
 </urlset>

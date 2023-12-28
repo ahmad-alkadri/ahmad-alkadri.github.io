@@ -6,6 +6,7 @@ aliases:
 hideSummary: false
 description: Dusting off. Seriously, it's been a while since I used Hugo.
     Glad I still can manage to make it work.
+categories: ["Tech", "Projects"]
 ---
 
 Why the return? Well I already have my own website at Wordpress [here](https://ahmadalkadri.com),

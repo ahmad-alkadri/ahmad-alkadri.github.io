@@ -1,0 +1,22 @@
+<style>
+    .categories-link {
+        transition: opacity 0.3s, transform 0.2s;
+    }
+
+    .categories-link:hover {
+        opacity: 0.5;
+    }
+
+    .categories-link:active {
+        transform: scale(0.95);
+    }
+</style>
+
+{{- $categories := .Params.categories -}}
+{{- if $categories -}}
+{{- $lastIndex := sub (len $categories) 1 -}}
+{{- range $index, $tag := $categories -}}
+<a href="/categories/{{ $tag | urlize }}" class="categories-link"> {{ $tag }}</a>
+{{- if ne $index $lastIndex }}&nbsp;·&nbsp;{{ end -}}
+{{- end -}}
+{{- end -}}

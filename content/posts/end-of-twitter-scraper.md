@@ -1,9 +1,9 @@
 ---
 title: "So Long, and Thanks For All The Tweets (Scraper)"
-date: 2023-07-01T22:23:47+02:00
+date: "2023-07-01T22:23:47+02:00"
 aliases:
     - /2023/07/01/so-long-and-thanks-for-all-the-tweets-scraper/
-category: ["blog", "tech"]
+categories: ["Tech", "Coding", "Projects"]
 description: As of yesterday, and confirmed by Elon Musk himself (kinda), Twitter requires people to be signed in to see tweets, even public ones. End of an era.
 hideSummary: false
 ---
