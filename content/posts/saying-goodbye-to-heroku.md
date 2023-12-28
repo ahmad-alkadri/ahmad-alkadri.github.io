@@ -3,6 +3,7 @@ title: "Saying Goodbye to Heroku"
 date: 2022-12-04T18:47:22+02:00
 aliases:
     - /2022/12/04/saying-goodbye-to-heroku/
+categories: ["Tech"]
 description: On the end of Heroku's free tier and what it means for me.
 ---
 

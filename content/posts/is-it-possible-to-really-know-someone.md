@@ -3,7 +3,7 @@ title: "Is It Possible to Really Know Someone?"
 date: 2023-08-12T11:33:06+01:00
 aliases:
     - /2023/08/12/is-it-possible-to-really-know-someone/
-category: ["blog", "philosophy"]
+categories: ["Philosophy"]
 description: This shouldn’t have surprised me as much as it does, but I have come to the realization that, in conclusion, we will never fully know or understand others or even ourselves.
 hideSummary: false
 ---
