@@ -6,6 +6,9 @@ aliases:
 categories: ["Philosophy"]
 description: This shouldn’t have surprised me as much as it does, but I have come to the realization that, in conclusion, we will never fully know or understand others or even ourselves.
 hideSummary: false
+cover:
+    image: "/img/to-really-know-someone/img01.jpg"
+    caption: "Artwork from the book that I bought, apparently part of [Penguin Vintage series](https://shop.penguin.co.uk/products/the-wind-up-bird-chronicle-vintage1) (I don’t know how it ended up at a small bookstore in Den Haag)"
 ---
 
 I forgot where I first heard this, and if someone can tell me the source, I’d
@@ -19,10 +22,6 @@ gladly cite them here. So here it goes:
 These words came to the forefront of my mind a week ago, after finishing The
 Wind-Up Bird Chronicle. They’ve stayed with me since, and I feel like writing
 them down to release some of the thoughts that have been bugging me.
-
-| ![](/assets/img/to-really-know-someone/img01.jpg) |
-| --- |
-| *Artwork from the book that I bought, apparently part of [Penguin Vintage series](https://shop.penguin.co.uk/products/the-wind-up-bird-chronicle-vintage1) (I don’t know how it ended up at a small bookstore in Den Haag)* |
 
 ---
 
@@ -113,7 +112,7 @@ still wouldn’t know everything about her, would I?
 Just like me not knowing my siblings or parents fully, even though I basically
 lived with them for a very long time until my teenage years.
 
-| ![](/assets/img/to-really-know-someone/img02.jpg) |
+| ![](/img/to-really-know-someone/img02.jpg) |
 | --- |
 | *Illustration by Harry Campbell on **[Antifragile Systems](https://spectrum.ieee.org/antifragile-systems)*** |
 

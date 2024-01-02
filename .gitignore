@@ -1,2 +1,8 @@
 oldblog
 ghostwriter-master.zip
+
+# Ignore everything in the docs folder
+docs/*
+
+# But don't ignore the CNAME file
+!docs/CNAME
