@@ -1,0 +1,50 @@
+name: Build and Deploy Hugo Site
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        submodules: true # Fetch Hugo themes (true OR recursive)
+        fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
+
+    - name: Setup Git
+      run: |
+        git config --global user.name 'Ahmad Alkadri'
+        git config --global user.email 'ahmad.alkadri@outlook.com'
+
+    - name: Create or Reset 'deploy' Branch to Match 'master'
+      run: |
+        git checkout master
+        git branch -D deploy || true
+        git checkout -b deploy
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: "latest"
+
+    - name: Build Hugo Site
+      run: hugo
+
+    - name: Commit Hugo Build
+      run: |
+        git add .
+        git commit -m "Deploying Hugo build" || echo "No changes to commit"
+
+    - name: Push to 'deploy' Branch
+      run: git push origin deploy --force
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs

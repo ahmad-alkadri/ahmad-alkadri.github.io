@@ -3,7 +3,7 @@ name: github pages
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - deploy # Set a branch to deploy
   pull_request:
 
 jobs:
@@ -12,17 +12,31 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          submodules: true # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: "latest"
           # extended: true
+
+      - name: Setup Git
+        run: |
+          git config --global user.name 'Ahmad Alkadri'
+          git config --global user.email 'ahmad.alkadri@outlook.com'
 
       - name: Build
         run: hugo
+
+      - name: Commit Hugo Build
+        run: |
+          git add .
+          git commit -m "Deploying Hugo build"
+      
+      - name: Push to 'deploy' Branch
+        run: |
+          git push origin deploy --force
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
