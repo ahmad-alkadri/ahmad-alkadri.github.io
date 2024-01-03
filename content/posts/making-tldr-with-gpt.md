@@ -48,15 +48,15 @@ Luckily we have `TTLCache` from `cachetools`. It provides a quite high-level way
 
 Just like my old [twitter scraper](/posts/saying-goodbye-to-heroku) project (it's still not fixed following Twitter's API update; I swear once I get enough spare time--probably two or three days--I'll fix it), I decided to deploy the app on Streamlit Cloud. It works quite fast (even with me still using the Free Plan) and I'm quite happy with how it turned out. Some screenshots below:
 
-| ![](/assets/img/making-tldr-with-gpt/ss_1.png) |
+| ![](/img/making-tldr-with-gpt/ss_1.png) |
 | --- |
 | *Landing page* |
 
-| ![](/assets/img/making-tldr-with-gpt/ss_2.png) |
+| ![](/img/making-tldr-with-gpt/ss_2.png) |
 | --- |
 | *Summarization in-progress* |
 
-| ![](/assets/img/making-tldr-with-gpt/ss_3.png) |
+| ![](/img/making-tldr-with-gpt/ss_3.png) |
 | --- |
 | *In no way or form do I profit from this post or has any commercial relations/interests/endorsements with Google at all* |
 

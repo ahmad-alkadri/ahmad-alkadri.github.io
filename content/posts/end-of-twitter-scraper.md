@@ -10,14 +10,14 @@ hideSummary: false
 
 Yesterday, someone informed me that my Tweet Cloud Maker hadn't been working well for the entire morning until it finally stopped altogether -- it just returned warnings of empty results. At first, this was not surprising to me. I had just finished working on [fixing and rewriting](/posts/fixing-twitter-scrapers/) the backend tweet scraper a couple of weeks back, and I figured it would be just one of those bugs that I would need to fix.
 
-| ![](/assets/img/end-of-twitter-scrapers/ss_0.png) |
+| ![](/img/end-of-twitter-scrapers/ss_0.png) |
 | --- |
 | *Screenshot of the app when I checked it* |
 
 After almost an hour of debugging and no result, I finally turned to my most trusted aide: Google.
 Almost immediately, I got the answer to my question: [Twitter now requires an account to view tweets](https://techcrunch.com/2023/06/30/twitter-now-requires-an-account-to-view-tweets/).
 
-| ![](/assets/img/end-of-twitter-scrapers/ss_1.png) |
+| ![](/img/end-of-twitter-scrapers/ss_1.png) |
 | --- |
 | *Screenshot from the article* |
 
@@ -27,11 +27,11 @@ Well, I launched my Postman almost immediately to check, expecting at least some
 
 I was mistaken. The API v1.1 no longer works for scraping tweets.
 
-| ![](/assets/img/end-of-twitter-scrapers/ss_2.png) | 
+| ![](/img/end-of-twitter-scrapers/ss_2.png) | 
 | --- |
 | *Screenshot of the API call to get the guest token* |
 
-| ![](/assets/img/end-of-twitter-scrapers/ss_3.png) |
+| ![](/img/end-of-twitter-scrapers/ss_3.png) |
 | --- |
 | *Screenshot of the API call to get the tweets* |
 
@@ -39,7 +39,7 @@ These are truly worldwide changes. They effectively end all Twitter scrapers, ev
 
 Today, Musk finally confirmed the changes that have occurred via Twitter. Well, sort of, because he didn't directly address it; rather, he mentioned something that I think is even worse: all accounts on Twitter are now rate-limited. The newly unverified accounts can only read 300 tweets per day, old unverified accounts can read up to 600 tweets per day, and finally, verified accounts can read up to 6000 tweets per day.
 
-| ![](/assets/img/end-of-twitter-scrapers/ss_4.png) |
+| ![](/img/end-of-twitter-scrapers/ss_4.png) |
 | --- |
 | *Mind you, to get yourself verified on Twitter, you'll have to pay.* |
 

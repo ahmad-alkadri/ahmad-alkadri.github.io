@@ -58,11 +58,11 @@ Then, as a bigger change, I simply remove the feature to scrape tweets between c
 
 Some screenshots of the app running:
 
-| ![](/assets/img/fixing-twitter-scrapers/ss_1.png) |
+| ![](/img/fixing-twitter-scrapers/ss_1.png) |
 | --- |
 | *Landing page* |
 
-| ![](/assets/img/fixing-twitter-scrapers/ss_2.png) |
+| ![](/img/fixing-twitter-scrapers/ss_2.png) |
 | --- |
 | *Scraping Elon Musk's tweets* |
 
