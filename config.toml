@@ -23,17 +23,17 @@ Sometimes, I write down [my thoughts](/categories/philosophy/) too.
 
 +
 
-For the last four years now, I've been working as Simulation Engineer.
-That is to say, I've done a lot of calculations--mostly *finite element analysis*--using
-Python and [CAST3M](https://www-cast3m.cea.fr/index.php). 
-I also made a lot of full-stack apps for internal tooling use--Streamlit, Flask,
-React, and Next.js are my jam.
+For the last four years, I've been working at a startup called [LEKO LABS](https://lekolabs.com).
+I started out as a thermal simulation engineer, doing mostly standardized building physics
+calculations, but over time I've also built simulation apps, developed end-to-end manufacturing
+tool, data services, REST API apps, and many more. MERN and FReMP stacks, complemented by Streamlit,
+Rust, and Golang, are my jam.
 
 +
 
 These days, other than work, I'm more into doing some web app development, learning Japanese
 (B1 level now), and reading books. If you want to reach me, feel free to send me some
-[email](mailto:ahmad.alkadri@outlook.com), connect with me on [LinkedIn](https://www.linkedin.com/in/alkadri).
+[email](mailto:ahmad.alkadri@outlook.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/alkadri).
 Otherwise, feel free to [search and browse](/search) through my blog and leave comment if you want!
 """
 
