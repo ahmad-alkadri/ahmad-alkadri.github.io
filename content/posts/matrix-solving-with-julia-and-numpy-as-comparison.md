@@ -4,10 +4,9 @@ date: 2023-10-11T04:29:25+01:00
 aliases:
     - /2023/10/11/matrix-solving-with-julia-and-numpy-as-comparison/
 hideSummary: false
-categories: ["Tech", "Coding"]
+categories: ["Coding"]
 description: In which I got curious, rekindled my past with Julia (the language), 
     and did some benchmark tests against NumPy.
-draft: false
 ---
 
 A lot of things happened between my last post and now. Family stuff, work
