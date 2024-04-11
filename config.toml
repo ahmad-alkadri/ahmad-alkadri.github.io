@@ -12,6 +12,7 @@ paginate = 5
     email = "ahmad.alkadri@outlook.com"
     opengraph = true
     dateFormat = "Mon, Jan 2, 2006"
+    ShowCodeCopyButtons = true
 
 [Params.homeInfoParams]
 Title = "Welcome!"
