@@ -7,6 +7,7 @@ hideSummary: false
 categories: ["Coding"]
 description: In which I got curious, rekindled my past with Julia (the language), 
     and did some benchmark tests against NumPy.
+ShowToc: true
 ---
 
 A lot of things happened between my last post and now. Family stuff, work

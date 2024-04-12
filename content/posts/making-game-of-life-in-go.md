@@ -1,10 +1,12 @@
 ---
 title: "Making Game of Life in Go"
-date: 2024-04-11T06:46:25+02:00
+date: 2024-04-13T00:02:25+02:00
 aliases:
-    - /2024/04/11/making-game-of-life-in-go/
+    - /2024/04/13/making-game-of-life-in-go/
 categories: ["Coding", "Projects"]
-description: In which I stumbled upon an article mentioning the Game of Life, felt a wave of nostalgia, and embarked on a weekend coding project to make an implementation of it in Go, playable on Terminal.
+description: In which I stumbled upon an article mentioning the Game of Life, 
+    felt a wave of nostalgia, and did a weekend project to make an implementation 
+    of it in Go, playable on Terminal.
 hideSummary: false
 ShowToc: true
 
