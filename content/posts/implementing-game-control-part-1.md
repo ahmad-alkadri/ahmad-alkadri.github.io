@@ -151,8 +151,9 @@ the parent loop, there's a child infinite loop that is still running. So we were
 inside the loop. This makes it appear as though the larger loop is not working, while the
 inner loop actually works all the time.
 
-|  | | --- | |![](/img/implementing-game-control-in-go/loopception.jpg) | | More or less
-my expression when I realized |
+|![](/img/implementing-game-control-in-go/loopception.jpg) | 
+| --- | 
+| *More or less my expression when I realized* |
 
 ## Solution 2: Let It Go, Don't Show
 
