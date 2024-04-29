@@ -11,7 +11,7 @@ ShowToc: true
 # What Is It
 
 Previously, I wrote about my latest weekend project, which is [implementing the Game of
-Life in Go](https://www.notion.so/2024/04/13/making-game-of-life-in-go).
+Life in Go](/2024/04/13/making-game-of-life-in-go).
 
 It was honestly fun, perhaps the most enjoyable weekend project I've undertaken in the
 past few years. I got to relearn the algorithm, figure out how to work with Terminal, and

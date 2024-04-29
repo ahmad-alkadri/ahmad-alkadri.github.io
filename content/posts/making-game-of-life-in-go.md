@@ -15,9 +15,9 @@ ShowToc: true
 # How and Why
 
 I hadn't planned on undertaking another weekend project. My last one [was
-spectacularly destroyed](https://www.notion.so/posts/end-of-twitter-scraper/),
+spectacularly destroyed](/posts/end-of-twitter-scraper/),
 and another became almost [immediately
-useless](https://www.notion.so/posts/making-tldr-with-gpt/) with the latest
+useless](/posts/making-tldr-with-gpt/) with the latest
 updates of ChatGPT. All things considered, I was content to spend my recent
 weekends (almost literally) on the couch.
 
