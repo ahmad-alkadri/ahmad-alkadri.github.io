@@ -1,5 +1,5 @@
 ---
-title: "Implementing Game Control Part 2: On the Game of Life"
+title: "Implementing Game Control, Part 2: On the Game of Life"
 date: 2024-04-29T01:38:29+02:00
 categories: ["Coding", "Projects"]
 description: How I implemented control in the Game of Life, Part 2 - Controlling
@@ -13,23 +13,24 @@ ShowToc: true
 Hello! This is the second part of my two-part blog series on implementing game
 control functionality in the Game of Life using Go. If you've just discovered my
 blog and landed here first, I highly recommend starting with my last two posts:
-one is about how I wrote an implementation of the Game of Life in Go, and the
-other one is the first part of this series.
+one is about [how I wrote an implementation of the Game of Life in Go](/posts/making-game-of-life-in-go/), 
+and the other one is the post that is the [first part of this series](/posts/implementing-game-control-part-1/).
 
-The first part of this blog series provides an insight into my journey. It
+So, the first part of this blog series provides an insight into my journey. It
 details how I decided to add game control functionality to my Game of Life, what
 motivated this decision, and how I went about implementing basic loop control in
 Go. This served as a foundation and precursor before I moved on to implement the
 game control feature in earnest.
 
-So, without further ado, let’s move to this second part of the blog.
+Anyway, without further ado, let’s move to this second part of the blog.
 
 # Refactoring
 
-As described in the original post about this Game of Life implementation, the
-initial setup of this project is very simple. It’s straightforward, it has no
-structure, just a big `main.go` file containing the whole code and a folder
-called `example/` containing, well, the example patterns that user can use.
+As described in the [original post](/posts/making-game-of-life-in-go/) 
+about this Game of Life implementation, the initial setup of this project 
+wass very simple. It was straightforward, it had no structure, just a big `main.go` 
+file containing the whole code and a folder called `example/` containing, 
+well, the example patterns that user can use.
 
 ```bash
 .
@@ -50,8 +51,7 @@ pursue further.
 Well, until approximately ten days ago.
 
 Once I decided to add game control to this Game of Life project, I began to test
-different solutions. After [finding a promising
-approach](/posts/implementing-game-control-part-1/), I
+different solutions. After [finding a promising approach](/posts/implementing-game-control-part-1/), I
 knew it was time to start upgrading the project structure.
 
 This wasn't just for looks - it was a necessary technical step. The upgrade
@@ -63,9 +63,8 @@ goal of this restructuring was to make sure different parts of the project were
 clearly separated and easy to maintain.
 
 I had a few options in mind, but after some thought, I decided to go with the
-[typical (though unofficial) standard Go project
-layout](https://github.com/golang-standards/project-layout). This led to a
-completely new project structure.
+[typical (though unofficial) standard Go project layout](https://github.com/golang-standards/project-layout). 
+This led to a completely different project structure.
 
 ```bash
 .
@@ -102,8 +101,8 @@ Life that I did, the key to understand the whole thing is by seeing the whole
 thing—world iteration, cells generation, etc.—as part of big loop. One step of
 time happening inside this loop and *everything* will be updated. 
 
-As previously explained in the first part of this series, the key to controlling
-the loop—creating the illusion of a pause—is achieved through the use of
+As previously explained in [the first part of this series](/posts/implementing-game-control-part-1/), 
+the key to controlling the loop—creating the illusion of a pause—is achieved through the use of
 channels and goroutines in Go. Two separate processes, namely the *game* process
 and the *control* process, operate concurrently. 
 
@@ -111,13 +110,17 @@ Thus, the concurrency would be facilitated by launching these two processes as
 separate goroutines.
 
 Throughout the entire duration of the game, five major operations or events are
-likely to occur: the *control* event, which includes actions such as pausing or
-resuming the game; the *step* event, which refers to advancing by a single step
-while the game is paused; the *exit* event, which involves quitting the game
-entirely; the *game over* event, which occurs when the game concludes naturally
-without being manually terminated by the user; and finally, the potential
-*error* event. The error event could be caused by a wide range of issues and we
-will delve into this further later in the series.
+likely to occur:
+1. the *control* event, which includes actions such as pausing or
+resuming the game
+2. the *step* event, which refers to advancing by a single step
+while the game is paused
+3. the *exit* event, which involves quitting the game
+entirely
+4. the *game over* event, which occurs when the game concludes naturally
+without being manually terminated by the user; 
+5. the potential *error* event. The error event could be caused by a wide range of issues but
+we mostly focus on keyboard event error.
 
 Given these five major events, we will require a minimum of five channels. Each
 channel will correspond to a specific event and will be responsible for managing
@@ -178,8 +181,8 @@ environment and managing the control flow of the game state through various
 channels. It starts by defining the dimensions of the game world (`MaxX, MaxY :=
 60, 20`) and reading the initial cell coordinates.
 
-To handle the keyboard inputs, it leverages the `keyboard` package. If there's
-an issue opening the keyboard, the function will cease execution and print the
+To handle the keyboard inputs, it leverages the [`keyboard` package](https://github.com/eiannone/keyboard). 
+If there's an issue opening the keyboard, the function will cease execution and print the
 error message.
 
 Five channels are created (`controlChan`, `stepChan`, `exitChan`,
@@ -194,9 +197,9 @@ Following this, two goroutines are set to be launched, one for running the game
 and another for reading keyboard inputs. These goroutines will be interacting
 with the various channels to control the game state and respond to user input.
 
-### Upgrading Game() Function
+### Upgrading `Game()` Function
 
-We now set to create the Game() function, which is basically the separated,
+We now set to create the `Game()` function, which is basically the separated,
 wrapped version of its initial game logic that were put fully, simply, inside
 the `main()` function at its initial version. As we can see, this function now
 needs to take into account the control, exit, game over, and step channels
@@ -472,3 +475,21 @@ It used the heart pattern, which is located in the `examples/` folder in the
 game's repo.
 
 ![](/img/implementing-game-control-in-go/render_game_updated.gif)
+
+# Conclusion
+
+In conclusion, the new control that's been implemented above allows players to pause
+and resume the game, advance the game one step at a time, and exit the game
+whenever they choose. 
+
+The use of goroutines and channels in Go made it possible
+to manage these features effectively, offering a real-time, interactive gaming
+experience.
+
+Now, at last: I encourage you to try it out! 
+The complete code is available on the github repo 
+[here](https://github.com/ahmad-alkadri/LaVieEnGo). 
+Feel free to explore, make changes,
+and even contribute if you wish. 
+
+Cheers!
