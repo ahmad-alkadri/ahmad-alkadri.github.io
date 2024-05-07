@@ -6,3 +6,4 @@ docs/*
 
 # But don't ignore the CNAME file
 !docs/CNAME
+.DS_Store
