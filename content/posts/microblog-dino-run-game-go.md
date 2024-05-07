@@ -1,6 +1,6 @@
 ---
 title: "Dino Run Game with Go"
-date: 2024-05-07T23:46:57+02:00
+date: 2024-05-08T00:39:57+02:00
 aliases:
     - /2024/05/08/microblog-dino-run-game-with-go/
 categories: ["Microblog", "Coding", "Projects"]
