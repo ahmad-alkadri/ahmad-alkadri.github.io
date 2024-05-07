@@ -19,6 +19,9 @@
       {{- partial "translation_list.html" . -}}
       {{- partial "edit_post.html" . -}}
       {{- partial "post_canonical.html" . -}}
+      {{ if and (.Params.ShowPageViews | default (.Site.Params.ShowPageViews | default true)) }}
+      {{- partial "page_views.html" . -}}
+    {{ end }}
     </div>
     <hr style="opacity: 0.5;">
     {{- end }}

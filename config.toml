@@ -13,6 +13,7 @@ paginate = 5
     opengraph = true
     dateFormat = "Mon, Jan 2, 2006"
     ShowCodeCopyButtons = true
+    goatcounter = "ahmadalkadri-com"
 
 [Params.homeInfoParams]
 Title = "Welcome!"
