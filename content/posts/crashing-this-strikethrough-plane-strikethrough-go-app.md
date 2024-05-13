@@ -1,8 +1,10 @@
 ---
 title: "Crashing This (Go) App"
 date: 2024-05-13T19:20:03+02:00
-description: "In which I transform a meme into a practical \
-	guide for crashing simulation services in nested virtual machines, ensuring no survivors."
+aliases:
+    - /2024/05/13/crashing-this-go-app/
+categories: ["Microblog", "Coding", "Go"]
+description: In which I transform a meme into a practical guide for crashing simulation services in nested virtual machines, ensuring no survivors.
 ---
 
 It started out innocently from the well-known meme, but
