@@ -3,8 +3,7 @@ languageCode = 'en-us'
 title = 'Ahmad Alkadri'
 theme = 'PaperModSelf'
 publishDir = 'docs'
-disqusShortName = 'ahmad-alkadri'
-paginate = 5
+pagination.pagerSize = 5
 
 [Params]
     mainSections = ["posts"]
@@ -14,9 +13,10 @@ paginate = 5
     dateFormat = "Mon, Jan 2, 2006"
     ShowCodeCopyButtons = true
     goatcounter = "ahmadalkadri-com"
+    disqusShortName = 'ahmad-alkadri'
 
 [Params.homeInfoParams]
-Title = "Welcome!"
+Title = "ようこそ!"
 Content = """
 This is a personal website of mine. Here, I mostly blog. 
 I blog about [a lot of things](/categories/), such as [coding](/categories/coding/), [tech](/categories/tech/),
@@ -25,16 +25,21 @@ Sometimes, I write down [my thoughts](/categories/philosophy/) too.
 
 +
 
-For the last four years, I've been working at a startup called [LEKO LABS](https://lekolabs.com).
-I started out as a thermal simulation engineer, doing mostly standardized building physics
-calculations, but over time I've also built simulation apps, developed end-to-end manufacturing
-tool, data services, REST API apps, and many more. MERN and FReMP stacks, complemented by Streamlit,
-Rust, and Golang, are my jam.
+Following my three-year pursuit of Doctoral studies in Mechanics and Civil Engineering in France,
+I moved to Luxembourg in 2020 to work as a Simulation Engineer at a startup called [LEKO LABS](https://lekolabs.com).
+I didn't know it at the time, but it was a turning point in my life. I had to learn a lot of new things,
+from coding to building physics, and I had to do it fast. I was thrown into the deep end, but I loved it.
 
 +
 
-These days, other than work, I'm more into doing some web app development, learning Japanese
-(B1 level now), and reading books. If you want to reach me, feel free to send me some
+Early this year, I decided to take my career and life in a different direction. I left my job and moved to Japan,
+family in tow. Today, I am a software engineer at [Tektome Inc.](https://tektome.com/), a company that specializes in
+using AI for AEC works. Just like my previous job, I am mostly working backend. Python, Golang, and
+Typescript are currently my main languages.
+
++
+
+Other than work, I'm more into learning Japanese and reading books. If you want to reach me, feel free to send me some
 [email](mailto:ahmad.alkadri@outlook.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/alkadri).
 Otherwise, feel free to [search and browse](/search) through my blog and leave comment if you want!
 """
