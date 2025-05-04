@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Hugo Server with Reload",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "hugo serve -D",
+            "cwd": "${workspaceFolder}",
+        },
+        {
+            "name": "Create a New Post",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "hugo new posts/${input:PostPath}.md",
+            "cwd": "${workspaceFolder}",
+        }
+    ],
+    "inputs": [
+        {
+            "id": "PostPath",
+            "type": "promptString",
+            "description": "Enter the post path (e.g., my-new-post)"
+        }
+    ]
+}
