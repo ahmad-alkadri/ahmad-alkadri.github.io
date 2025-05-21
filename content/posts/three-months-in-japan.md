@@ -31,15 +31,17 @@ Time passed and suddenly I found myself and my family on our feet, standing in f
 
 One moment I was learning Japanese as a hobby, and then suddenly I had to learn Japanese to survive. From simple conversations in 7-Eleven to refuse a plastic bag, to asking the bank teller to help me transfer money to my landlord for paying this month's rent—everything came at me all at once. It was overwhelming, to say the least.
 
-But here's the interesting thing: even with all those challenges, I quickly learned that no matter how many things we have to face, all of them can be handled one by one with enough patience. During those patience-testing times, it's normal to feel handicapped. Feeling frustrated because you can't open a bank account without a phone number? It's normal. Feeling frustrated because you have to pay the full amount when you bring your child to the doctor because the health insurance card not yet arrived? It's normal.
+But here's the interesting thing: even with all those challenges, I quickly learned that no matter how many things we have to face, all of them can be handled one by one with enough patience. During those patience-testing times, it's normal to feel handicapped. 
+
+So—feeling frustrated because you can't open a bank account without a phone number? **It's normal**. Feeling frustrated because you have to pay the full amount when you bring your child to the doctor because the health insurance card not yet arrived? **It's normal**.
 
 I've learned that, one by one, those handicaps will disappear. There is a certain order here—a bureaucracy—that we just have to navigate bit by bit. The only unfortunate thing is that, unlike when I was in France or Luxembourg, I don't understand the language quite well here. Untangling those bureaucratic processes feels harder. 
 
 Still, I can only trust the system to take care of me and my family well.
 
-And that brings me to this final impression from my first three months here: it's been surprisingly easy to trust people. From the back-office staff at my new employer's office to the building manager of my apartment, and from the cashier at the nearby Lawson to the personnel at the local municipal office—everyone seems competent and trustworthy. There's a sense of harmony, a feeling that people are genuinely trying their best to help.
+And that brings me to this final impression from my first three months here: it's been surprisingly easy to find reliable people. From the back-office staff at my new employer's office to the building manager of my apartment, and from the cashier at the nearby Lawson to the personnel at the local municipal office—everyone seems competent and trustworthy. There's a sense of harmony, a feeling that people are genuinely trying their best to help.
 
-In turn, this inspires me to pay back with my own efforts, multiplied. The mutual respect I’ve experienced here—regardless of where I come from or who I am—is something I haven’t felt so deeply in a long, long time. It’s a refreshing and uplifting experience that makes me feel more connected to people around me.
+In turn, this inspires me to pay back with my own efforts, multiplied. The mutual respect I've experienced here—regardless of where I come from or who I am—is something I haven't felt so deeply in a long, long time. It's a refreshing and uplifting experience that makes me feel more connected to people around me.
 
 Still, though, not everything has been resolved. There are still some handicaps I face, especially when navigating the bureaucracies here. Yet, despite these challenges, I feel optimist. Moving forward feels easier here, and I believe that with time, patience, and effort, things will always get better.
 
