@@ -11,11 +11,11 @@ cover:
 
 ---
 
-When I first landed in Tokyo earlier this year, I thought I had a decent idea of what to expect. This was, after all, not my first time coming to Japan. I came here first time in 2022, with my wife and daughter (no son yet at that time!) for a couple of weeks of vacation. Admittedly, back then, we only stayed in Ginza area and only visited the touristy parts. So I got biased imagination of what Tokyo would look and sound like.
+When I first landed in Tokyo earlier this year, I thought I had a decent idea of what to expect. This was, after all, not my first time coming to Japan. I first visited Japan in 2022, with my wife and daughter (no son yet at that time!) for a couple of weeks of vacation. Admittedly, back then, we only stayed in Ginza area and only visited the touristy parts. So I had a biased imagination of what Tokyo would look and sound like.
 
 The years after that visit, I had read books, watched videos, scrolled through clips of crowded crossings and neon signs, learning things about Japan. I had lived almost a decade in Europe, navigated the Kafkaesque French bureaucracy, walked through the snow-covered Luxembourgish winters, and commuted in trains that *creatively* scheduled.
 
-So when I finally moved to Japan; well, specificall, to Tokyo, earlier this year, I thought: *How surprising can Tokyo really be?*
+So when I finally moved to Japan--well, specifically, to Tokyo--earlier this year, I thought: *How surprising can Tokyo really be?*
 
 Turns out: very.
 
@@ -37,11 +37,9 @@ And all of these images were kind of reflected back then when I visited Tokyo th
 
 The reality: I found an apartment not far from Shinjuku. The center's center of Tokyo. At a first glance, from the streets, it was like what I imagined: tall apartment buildings standing tight one after another. But then, I step out of my apartment, walking through the back streets, and within one minute of walking, I'm under a canopy of trees.
 
-These green spaces were many. Surprisingly, very surprisingly, very abundant and welcoming and looking like they are well maintaineed. If not green spaces, we'd found, every now and then a small neighbourhood park, with a slide, a sandbox, a couple of benches, and trees that somehow manage to grow tall between apartment blocks. Other days it's a long, narrow green strip along a river, or a wider park with walking paths, a pond, and people's laughter carried by the wind.
+These green spaces were many. Surprisingly, very surprisingly, very abundant and welcoming and looking like they are well maintained. If not green spaces, we'd found, every now and then a small neighbourhood park, with a slide, a sandbox, a couple of benches, and trees that somehow manage to grow tall between apartment blocks. Other days it's a long, narrow green strip along a river, or a wider park with walking paths, a pond, and people's laughter carried by the wind.
 
-And, what's even better, is that all those green spaces, parks, are reachable. Within 30-minutes walking distance there are so many. Days, weekends spent with park-hunting. "Which park are we going to today?" becomes a daily question with the kids. Are we going to that park near the railway so my son can see the trains passing by? (Kids love trains!) Or to the one a bit further, with slides on the hill?
-
-As someone who spent years in a place where a "park" sometimes meant a patch of grass next to a road, or a muddy one enclosed with steel fences that is only open on certain hours, this abundance still feels unreal.
+And what's even better is that all those green spaces and parks are reachable. Within a 30-minute walking distance, there are so many. Days and weekends are spent park-hunting. "Which park are we going to today?" becomes a daily question with the kids. Are we going to that park near the railway so my son can see the trains passing by? (Kids love trains!) Or to the one a bit further, with slides on the hill?
 
 And it's not only the parks. It's the trees tucked into corners: in front of convenience stores, beside vending machines, in the middle of small parking lots. Trees growing out of tiny squares of soil cut into the pavement near a very busy intersection. Potted plants in front of houses, creating mini-jungles in narrow residential streets.
 
@@ -69,13 +67,9 @@ In the mornings, I often walk alongside a slow-moving parade of people on bicycl
 
 And it's not just the quantity. It's the normality.
 
-Many sidewalks have painted markings where bicycles can roll. Streets got markings on where bicycles should be. Peope go to the supermarket, the park, the station, the clinic, the city office--bicycles everywhere. Some are simple, some are electric, some carry one child, some carry two. I've seen a parent calmly cycling with a child in the front seat sleeping, head gently rocking, completely at peace. Train stations have multi-level bicycle parking areas. In front of supermarkets and drugstores, rows of bicycles are neatly parked.
+Many sidewalks have painted markings where bicycles can roll. Streets got markings on where bicycles should be. People go to the supermarket, the park, the station, the clinic, the city office--bicycles everywhere. Some are simple, some are electric, some carry one child, some carry two. I've seen a parent calmly cycling with a child in the front seat sleeping, head gently rocking, completely at peace. Train stations have multi-level bicycle parking areas. In front of supermarkets and drugstores, rows of bicycles are neatly parked.
 
-Coming from a place where I had to mentally prepare for my bicycle to potentially disappear if I left it outside for five minutes (and it did, it _did_ disappear, I lost one bike and one scooter in France-Luxembourg, but that's a story for another day), this still feels surprising to me, even today.
-
-Here, of course, bicycles do get stolen sometimes. Nothing is perfect. But the default attitude seems different. Feels that there is an unspoken agreement, a shared trust: *these bicycles are how people live*.
-
-And yes, I also bought bicycle. Two of them as a matter of fact--a mamachari and a normal electric one--one for my wife or me using to take kids to the school, to the park to play; another for me to take to the office. I mentioned above how oftentimes we spend weekends park-hunting, and sometimes we go to parks that are a bit further from home, and we simply go there with the bicycles. Practical, easy. And kids seemingly love it!
+And yes, I also bought bicycles. Two of them, in fact--a mamachari and a normal electric one--one for my wife or me to use for taking the kids to school or to the park to play; another for me to take to the office. I mentioned above how oftentimes we spend weekends park-hunting, and sometimes we go to parks that are a bit further from home, and we simply go there with the bicycles. Practical, easy. And the kids seem to love it!
 
 ---
 
@@ -85,9 +79,7 @@ This one, I think, is something that many people who live in Japan or grew up he
 
 I also knew that. I have imagined and prepared for it. But knowing that a country has earthquakes and actually *living* with them are two very different things.
 
-The first time I felt it, it was late in the evening, and I was flabbergasted. 
-
-I was still already at home. I thiink the kids were already sleeping. I and my wife were still awake. I was coding a bit, finishing some stuff for work. Suddenly I feel myself shaking left and right. I was surprised--my first instinct was thinking to myself _huh? What's wrong with me? Am I going to die like in one of those stories where a guy was overworked lack of sleep and finally--_
+The first time I felt it, it was late in the evening. I was already at home. The kids were already sleeping. I and my wife were still awake. I was coding a bit, finishing some stuff for work. Suddenly I feel myself shaking left and right. I was surprised--my first instinct was thinking to myself _huh? What's wrong with me? Am I going to die like in one of those stories where a guy was overworked lack of sleep and finally--_
 
 Then I and my wife realized that *everything was shaking*. Clothes in the hangers, our table, coat racks, everything. It was an earthquake. A rather big one too.
 
