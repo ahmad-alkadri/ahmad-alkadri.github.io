@@ -48,7 +48,7 @@ it felt like there were more gaps. Many examples I found were either out of date
 APIs that no longer exist.
 
 LLMs didn't help much either. I tried asking them for "Zig http client
-example" and got back some code that:
+example" and got back some code that were:
 
 - seemingly based on an older Zig version,
 - or used types that had moved,
@@ -73,11 +73,11 @@ This post is mostly a note to my future self so I don't forget how I set this
 up. If it helps someone else who's running Zig 0.15.2 and just wants a
 working example, even better.
 
-I originally used the GitHub API, but the unauthenticated requests-per-hour limit 
-(which apparently also inconsistent; like some people said it was 60 rph but I got
+I originally used the GitHub API, but the unauthenticated requests-per-hour limit
+(which is apparently inconsistent--some people say it's 60 rph, but I got
 rate-limited far, far below that!) made testing annoying. 
 I switched to the PokeAPI instead: it's public, has simple JSON, and
-doesn't require tokens, and seemingly (so far) I haven't hit any rate limit yet.
+doesn't require tokens. So far, I haven't hit any rate limits either. (Thank you PokeAPI!!)
 
 ---
 
